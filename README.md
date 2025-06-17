@@ -1,5 +1,8 @@
 # Not_Tako Web
 
+## Link
+[Website](https://saiko0324.github.io/nottakoweb/)
+
 ## Introduction
 I've always wanted to make my own website and serve it as a portfolio, as well as a platform to implement some of my weird ideas. This idea had been put off for far too long due to me not knowing how to do css/visual things, but I can learn, and **I'm tired of waiting for when I have time**. Hence this summer (June 2025) I'm actually going to start.
 
