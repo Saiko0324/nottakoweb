@@ -1,3 +1,6 @@
+19/06/2025
+Migrated the project into Vite for future development, mainly for component segregation.
+
 18/06/2025
 Didn't do any implementation, but I finished a basic crash course about HTML and CSS, and looked into other stuff like Tailwind CSS.
 Also brainstormed some more ideas I wanted to implement, but my next step would be a simple landing page.
