@@ -1,7 +1,14 @@
 # Not_Tako Web
 
 ## Link
-[Website](https://saiko0324.github.io/nottakoweb/)
+[Not_Tako Web](https://saiko0324.github.io/nottakoweb/)
+
+## Inspiration
+### Sharlene Yap
+She has been one of the biggest inspirations, I saw a video on her youtube and had been obsessed with this website idea ever since. Here's [her website](https://www.sharyap.com/), and [her video](https://www.youtube.com/watch?v=_tWh4cYCTv0). If the style of my website looks similar it's because she's a direct influence. And Shar, if you happen to read this, please don't hesitate if you find the designs too similar and want me to change them, and say hi to froggert for me \:D
+
+### Nathan Tokyo
+Chef's kiss for his interactive design, makes me want to do cool things as well. The product speaks for themselves so please [check out his page](https://nathan.tokyo/)
 
 ## Introduction
 I've always wanted to make my own website and serve it as a portfolio, as well as a platform to implement some of my weird ideas. This idea had been put off for far too long due to me not knowing how to do css/visual things, but I can learn, and **I'm tired of waiting for when I have time**. Hence this summer (June 2025) I'm actually going to start.
@@ -19,7 +26,7 @@ To my future self, or you that's reading this for whatever ungodly reason, **ple
 ## Tech Stack
 Currently nothing besides vue (planned), I want to start with basic html, css and javascript to consolidate my fundamentals.
 
-## Ideas
+## Ideas (not in order)
 1. quote generator to put in the dumbass things I say
 2. some nice/beautiful/rare words to learn
 3. button clicker game?
@@ -27,3 +34,14 @@ Currently nothing besides vue (planned), I want to start with basic html, css an
 5. some bug crawly thing from [this cool video](https://youtu.be/Q_-Veut_EJ4?list=LL&t=4)
 6. implement multiple imbedded windows and integrate some variation of [this thing](https://github.com/bgstaal/multipleWindow3dScene) (not the 3d part though)
 7. some form of grid based game/avatar movement (web embedded character control)
+   1. a controller that moves the screen
+   2. another controller that moves the character
+8. parry based rhythmn game
+9.  message visualizer to show my log.txt
+
+## Notes to self
+1. bilingual texts with vue-i18n
+2. lets encrypt to have https
+3. porkbun for a domain name to host
+4. convert png to webp for better download utizilation
+5. responsive design with @media screen and (max-width:n px)

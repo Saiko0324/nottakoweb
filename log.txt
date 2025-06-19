@@ -1,0 +1,11 @@
+18/06/2025
+Didn't do any implementation, but I finished a basic crash course about HTML and CSS, and looked into other stuff like Tailwind CSS.
+Also brainstormed some more ideas I wanted to implement, but my next step would be a simple landing page.
+
+17/06/2025
+I implemented the basic holy triangle to get myself going and wrote some stuff in the README.md file.
+I wanted this log to exist so I can keep myself in check to keep working on this project, might make it visible on the page in the future.
+
+16/06/2025
+I learned a bit about web dev things, created a repo with some basic files and officially started this project.
+The website is hosted on GitHub and that's about it.
