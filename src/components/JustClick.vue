@@ -1,14 +1,22 @@
 <template>
-  <div class="container">
-    <p>In the meantime, here's a button for you to click on :)</p>
-    <button @click="ButtonClick">Click</button>
-    <div class="message" v-if="Clicked">
+  <div class="bg-white p-8 rounded-xl shadow-md max-w-xl w-full text-center mt-8 mx-auto">
+    <p class="text-gray-700">In the meantime, here's a button for you to click on :)</p>
+    <button
+      @click="ButtonClick"
+      class="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+    >
+      Click
+    </button>
+
+    <div v-if="Clicked" class="mt-4 text-lg text-gray-800">
       Nice! You clicked it {{ ClickCount }} times.
     </div>
-    <div class="nice-number" v-if="ClickCount === 69">
+
+    <div v-if="ClickCount === 69" class="text-pink-600 font-bold mt-2">
       Nice number hehe >:)
     </div>
-    <div class="nice-number" v-if="ClickCount > 69">
+
+    <div v-if="ClickCount > 69" class="text-pink-600 font-bold mt-2">
       Nice number is over :(
     </div>
   </div>
@@ -31,27 +39,3 @@ export default {
   }
 };
 </script>
-
-<style scoped>
-.container {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  max-width: 600px;
-  width: 100%;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-.message {
-  margin-top: 1rem;
-  font-size: 1.1rem;
-}
-
-.nice-number {
-  color: #e91e63;
-  font-weight: bold;
-  margin-top: 0.5rem;
-}
-</style>

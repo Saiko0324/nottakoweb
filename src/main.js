@@ -1,5 +1,5 @@
 import { createApp } from 'vue'
 import './style.css'
-import JustClick from './components/JustClick.vue'
+import Root from './Root.vue'
 
-createApp(JustClick).mount('#JustClick')
+createApp(Root).mount('#Root')
