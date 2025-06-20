@@ -38,6 +38,8 @@ Currently nothing besides vue (planned), I want to start with basic html, css an
    2. another controller that moves the character
 8. parry based rhythmn game
 9.  message visualizer to show my log.txt
+10. keyboard input checker
+11. input some letters and render them with gravity
 
 ## Notes to self
 1. bilingual texts with vue-i18n

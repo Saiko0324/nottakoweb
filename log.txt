@@ -1,3 +1,7 @@
+20/06/2025
+Made a scrolling banner that randomly generates takodachi to stroll through the top, sources are from the web and my lovely girlfriend.
+Next up I wanna work on more floaty thing in the background, postponing the actual information presentaions because this is more fun lmao.
+
 19/06/2025
 Migrated the project into Vite for future development, mainly for component segregation.
 
