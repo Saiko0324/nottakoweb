@@ -1,19 +1,19 @@
 <template>
     <div class="sprite-wrapper" :style="{
-                      width: wrapperWidth + 'px',
-                      height: wrapperHeight + 'px',
-                      overflow: 'hidden',
-                    }">
-        <div class="sprite" :style="{
-                        width: wrapperWidth * frameCount + 'px',
-                        height: wrapperHeight + 'px',
-                        backgroundImage: `url(${spritesheet})`,
-                        backgroundSize: wrapperWidth * frameCount + 'px ' + wrapperHeight + 'px',
-                        animationDuration: duration + 's',
-                        '--frame-count': frameCount,
-                        '--frame-width': wrapperWidth,
-                      }"></div>
-    </div>
+        width: wrapperWidth + 'px',
+        height: wrapperHeight + 'px',
+        overflow: 'hidden',
+    }">
+    <div class="sprite" :style="{
+        width: wrapperWidth * frameCount + 'px',
+        height: wrapperHeight + 'px',
+        backgroundImage: `url(${spritesheet})`,
+        backgroundSize: wrapperWidth * frameCount + 'px ' + wrapperHeight + 'px',
+        animationDuration: duration + 's',
+        '--frame-count': frameCount,
+        '--frame-width': wrapperWidth,
+    }"></div>
+</div>
 </template>
 
 <script setup>

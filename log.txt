@@ -1,6 +1,11 @@
+21/06/2025
+Updated scrolling banner to use WebP format instead (sprite animator unused lmao), also finished background with takodachi floating around.
+There are three types currently, might add more later.
+Next is either light/dark mode or writing the actual informations.
+
 20/06/2025
 Made a scrolling banner that randomly generates takodachi to stroll through the top, sources are from the web and my lovely girlfriend.
-Next up I wanna work on more floaty thing in the background, postponing the actual information presentaions because this is more fun lmao.
+Next up I wanna work on more floaty things in the background, postponing the actual information presentaions because this is more fun lmao.
 
 19/06/2025
 Migrated the project into Vite for future development, mainly for component segregation.

@@ -40,6 +40,8 @@ Currently nothing besides vue (planned), I want to start with basic html, css an
 9.  message visualizer to show my log.txt
 10. keyboard input checker
 11. input some letters and render them with gravity
+12. Colour blind mode and rgb mode
+13. Dyslexie font
 
 ## Notes to self
 1. bilingual texts with vue-i18n
@@ -47,3 +49,4 @@ Currently nothing besides vue (planned), I want to start with basic html, css an
 3. porkbun for a domain name to host
 4. convert png to webp for better download utizilation
 5. responsive design with @media screen and (max-width:n px)
+6. use [checklist](https://www.checklist.design/) and [webaim](https://webaim.org/) to check accessibility
