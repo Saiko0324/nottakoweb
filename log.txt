@@ -1,6 +1,6 @@
 21/06/2025
 Updated scrolling banner to use WebP format instead (sprite animator unused lmao), also finished background with takodachi floating around.
-There are three types currently, might add more later.
+There are three types currently, might add more later, and they are draggable.
 Next is either light/dark mode or writing the actual informations.
 
 20/06/2025

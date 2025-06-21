@@ -8,7 +8,7 @@ import Background from './components/Background.vue';
 
 <template>
     <ScrollingBanner />
-    <Background :img1Count="3" :img2Count="3" :img3Count="3" style="z-index: -1;"/>
+    <Background :img1Count="3" :img2Count="3" :img3Count="3"/>
 </template>
 
 <style>

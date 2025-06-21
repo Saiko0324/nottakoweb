@@ -4,6 +4,7 @@
         ref="box"
         class="floaty-box"
         :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
+        @mousedown.prevent="StartDrag"
         >
         <slot />
     </div>
@@ -27,33 +28,79 @@ const box = ref(null)
 const container = ref(null)
 
 let animationFrameId
+let isDragging = false
+let dragOffset = { x: 0, y: 0 }
 
 const update = () => {
+    if (isDragging) {
+        animationFrameId = requestAnimationFrame(update)
+        return
+    }
+    
     const containerEl = container.value
     const boxEl = box.value
-    
     if (!containerEl || !boxEl) return
     
     const containerRect = containerEl.getBoundingClientRect()
     const boxRect = boxEl.getBoundingClientRect()
     
-    position.value.x += velocity.value.x
-    position.value.y += velocity.value.y
+    let newX = position.value.x + velocity.value.x
+    let newY = position.value.y + velocity.value.y
     
     const maxX = containerRect.width - boxRect.width
     const maxY = containerRect.height - boxRect.height
     
-    if (position.value.x <= 0 || position.value.x >= maxX) {
+    if (newX <= 0 || newX >= maxX) {
         velocity.value.x *= -1
-        position.value.x = Math.max(0, Math.min(position.value.x, maxX))
+        newX = Math.min(Math.max(newX, 0), maxX)
     }
     
-    if (position.value.y <= 0 || position.value.y >= maxY) {
+    if (newY <= 0 || newY >= maxY) {
         velocity.value.y *= -1
-        position.value.y = Math.max(0, Math.min(position.value.y, maxY))
+        newY = Math.min(Math.max(newY, 0), maxY)
     }
+    
+    position.value = { x: newX, y: newY }
     
     animationFrameId = requestAnimationFrame(update)
+}
+
+const StartDrag = (event) => {
+    isDragging = true
+    dragOffset.x = event.clientX - position.value.x
+    dragOffset.y = event.clientY - position.value.y
+    
+    document.addEventListener('mousemove', Drag)
+    document.addEventListener('mouseup', StopDrag)
+}
+
+const Drag = (event) => {
+    if (!isDragging) return
+    event.preventDefault()
+    
+    const containerEl = container.value
+    const boxEl = box.value
+    if (!containerEl || !boxEl) return
+    
+    const containerRect = containerEl.getBoundingClientRect()
+    const boxRect = boxEl.getBoundingClientRect()
+    
+    let newX = event.clientX - dragOffset.x
+    let newY = event.clientY - dragOffset.y
+    
+    const maxX = containerRect.width - boxRect.width
+    const maxY = containerRect.height - boxRect.height
+    
+    newX = Math.min(Math.max(newX, 0), maxX)
+    newY = Math.min(Math.max(newY, 0), maxY)
+    
+    position.value = { x: newX, y: newY }
+}
+
+const StopDrag = () => {
+    isDragging = false
+    document.removeEventListener('mousemove', Drag)
+    document.removeEventListener('mouseup', StopDrag)
 }
 
 onMounted(() => {
@@ -62,6 +109,8 @@ onMounted(() => {
 
 onUnmounted(() => {
     cancelAnimationFrame(animationFrameId)
+    document.removeEventListener('mousemove', Drag)
+    document.removeEventListener('mouseup', StopDrag)
 })
 </script>
 
@@ -71,6 +120,7 @@ onUnmounted(() => {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    z-index: inherit;
 }
 
 .floaty-box {
@@ -81,5 +131,7 @@ onUnmounted(() => {
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: grab;
+    z-index: 1;
 }
 </style>

@@ -8,14 +8,12 @@
         :velocityX="randomVelocities[index].x"
         :velocityY="randomVelocities[index].y"
         >
-        <div class="image-wrapper">
-            <img :src="image" class="floating-image" />
-        </div>
-    </Floaty>
-</div>
+            <div class="image-wrapper">
+                <img :src="image" class="floating-image" alt="floaty takodachi"/>
+            </div>
+        </Floaty>
+    </div>
 </template>
-
-
 
 <script setup>
 import { ref } from 'vue'
@@ -32,21 +30,26 @@ const props = defineProps({
 })
 
 const images = ref([
-  ...Array(props.img1Count).fill(img1),
-  ...Array(props.img2Count).fill(img2),
-  ...Array(props.img3Count).fill(img3),
+...Array(props.img1Count).fill(img1),
+...Array(props.img2Count).fill(img2),
+...Array(props.img3Count).fill(img3),
 ])
 
 const getRandom = (min, max) => Math.random() * (max - min) + min
 
+const getVelocity = () => {
+    return (Math.random() < 0.5)? getRandom(-2.5, -0.1) || 1 : getRandom(0.1, 2.5)
+}
+
+
 const randomPositions = images.value.map(() => ({
-    x: getRandom(0, window.innerWidth - 100),
-    y: getRandom(0, window.innerHeight - 100),
+    x: getRandom(0, window.innerWidth),
+    y: getRandom(0, window.innerHeight * 0.9),
 }))
 
 const randomVelocities = images.value.map(() => ({
-    x: getRandom(-2.5, 2.5) || 1,
-    y: getRandom(-2.5, 2.5) || 1,
+    x: getVelocity(),
+    y: getVelocity(),
 }))
 
 </script>

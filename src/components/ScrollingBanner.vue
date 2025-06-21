@@ -20,7 +20,7 @@
         <div class="image-wrapper">
             <img
             :src="item.src"
-            alt="Scrolling item"
+            alt="Scrolling takodachi"
             loading="eager"
             fetchpriority="low"
             :style="{ top: item.heightoffset + 'px', position: 'relative' }"
@@ -121,7 +121,7 @@ onUnmounted(() => {
     height: 10vh;
     overflow: visible;
     pointer-events: none;
-    background-color: #e1d7ca;
+    background-color: #e1eeca;
 }
 
 .image-wrapper {
@@ -141,8 +141,6 @@ onUnmounted(() => {
 
 .scrolling-image {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
     animation: scroll-left linear forwards;
     animation-duration: 10s;
     will-change: right;
@@ -150,10 +148,10 @@ onUnmounted(() => {
 
 @keyframes scroll-left {
     0% {
-        left: 100vw;
+        transform: translateX(100vw);
     }
     100% {
-        left: -10rem;
+        transform: translateX(-10rem);
     }
 }
 </style>

@@ -24,7 +24,7 @@ If the day ever comes that I make something I don't want to share the code for, 
 To my future self, or you that's reading this for whatever ungodly reason, **please make anything**, keep creating and keep materializing your thoughts and ideas, a bad project is infinitely better than nothing. The first step to making anything cool is to make something, and if its bad make it better.
 
 ## Tech Stack
-Currently nothing besides vue (planned), I want to start with basic html, css and javascript to consolidate my fundamentals.
+Vue framework with tailwindcss (integrated but not used yet), initially I wanted to start with basic html, css and javascript to consolidate my fundamentals, but figured I could learn the skills simultaneously (I think).
 
 ## Ideas (not in order)
 1. quote generator to put in the dumbass things I say
@@ -42,6 +42,8 @@ Currently nothing besides vue (planned), I want to start with basic html, css an
 11. input some letters and render them with gravity
 12. Colour blind mode and rgb mode
 13. Dyslexie font
+14. customize takodachi speed?
+15. beta art version
 
 ## Notes to self
 1. bilingual texts with vue-i18n
