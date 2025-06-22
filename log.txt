@@ -1,3 +1,8 @@
+22/06/2025
+Went outside to touch grass and didn't feel like development today, so I wrote a basic structure of what I want to show on the website.
+Also changed up the color design a bit and put in some fonts.
+I'll work on presenting the main topics and the containers for the sub-topics next.
+
 21/06/2025
 Updated scrolling banner to use WebP format instead (sprite animator unused lmao), also finished background with takodachi floating around.
 There are three types currently, might add more later, and they are draggable.

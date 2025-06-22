@@ -1,4 +1,30 @@
 @import "tailwindcss";
+@font-face {
+    font-family: 'Title';
+    src: url('@/assets/font/TrajanPro-Bold.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Content';
+    src: url('@/assets/font/eb-garamond.12-regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'CP';
+    src: url('@/assets/font/CP Font.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'hkr';
+    src: url('@/assets/font/TrajanPro-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'ur';
+    src: url('@/assets/font/ubuntu.regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'alegreya';
+    src: url('@/assets/font/alegreya-sans.regular.ttf') format('truetype');
+}
+
+
 html, body {
     overscroll-behavior: none;
     overflow: hidden;
@@ -9,10 +35,17 @@ html, body {
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #e1d7ca;
+    background-color: #f8f8f8;
     z-index: -1;
+}
+
+.title {
+    font-family: Title;
+}
+
+.content {
+    font-family: Content;
 }

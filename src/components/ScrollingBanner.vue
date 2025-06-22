@@ -1,5 +1,6 @@
 <template>
-    <div class="scroll-banner bg-white">
+    <div class="hidden-scroll-banner-message title"> WAH </div>
+    <div class="scroll-banner">
         <div class="scrolling-image lcp-image">
             <div class="image-wrapper">
                 <img
@@ -7,7 +8,7 @@
                 alt="LCP image"
                 loading="eager"
                 fetchpriority="high"
-                style="position: relative; top: 10px"
+                style="position: relative; top: 9px"
                 />
             </div>
         </div>
@@ -45,7 +46,7 @@ import img1 from '@/assets/img/ScrollingBanner/takodachi-spin-compressed-100.web
 const images = [{
     type: 'webp',
     src: img1,
-    heightoffset: 10,
+    heightoffset: 9,
 },
 // {
 // 	type: 'sprite',
@@ -79,9 +80,9 @@ const images = [{
 const activeImages = ref([]);
 let nextId = 0;
 let timerId = null;
-let idx = 0;
+// let idx = 0;
 
-const WrapperHeightInPx = 10 * (window.innerHeight / 100);
+// const WrapperHeightInPx = 10 * (window.innerHeight / 100);
 
 function spawnImage() {
     // const img = images[idx];
@@ -121,7 +122,9 @@ onUnmounted(() => {
     height: 10vh;
     overflow: visible;
     pointer-events: none;
-    background-color: #e1eeca;
+    background-color: hwb(246 71% 0%);
+    /* background-color: hwb(263 76% 0%); */
+    /* display: none; */
 }
 
 .image-wrapper {
@@ -153,5 +156,23 @@ onUnmounted(() => {
     100% {
         transform: translateX(-10rem);
     }
+}
+
+.hidden-scroll-banner-message {
+    position: fixed;
+    top: 0;
+    padding: 0;
+    margin: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 10vh;
+    z-index: 0;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    overflow: hidden;
 }
 </style>
