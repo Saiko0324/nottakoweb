@@ -2,6 +2,7 @@
     <div
     ref="box"
     class="floaty-box"
+    :class="{ grabbing: isDragging }"
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
     @mousedown.stop.prevent="StartDrag"
     >
@@ -117,5 +118,9 @@ onUnmounted(() => {
     justify-content: center;
     cursor: grab;
     z-index: 1;
+}
+
+.grabbing {
+  cursor: grabbing;
 }
 </style>

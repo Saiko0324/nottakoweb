@@ -1,7 +1,7 @@
 <template>
     <div class="dragwindow" ref="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @mousedown.stop @mousedown.prevent="bringToFront">
         <div class="window-header content" @mousedown.prevent="StartDrag">
-            <span class="content font-bold">{{ title }}</span>
+            <span class="window-title content font-bold text-lg">{{ title }}</span>
             <button class="close-button TrajanPro" @click="emit('update:show', false)">X</button>
         </div>
         <div class="window-body content">
@@ -83,10 +83,13 @@ watch(
 
 <style scoped>
 .window-header {
+    position: relative;
     height: 4vh;
     background-color: #2d3748;
     color: white;
-    padding: 0.5rem 1rem;
+    padding: 0 12px 0 16px;
+    /* padding: 0.7rem; */
+    /* padding-left: 1rem; */
     display: flex;
     /* justify-content: flex-end; */
     justify-content: space-between;
@@ -95,45 +98,48 @@ watch(
     border-top-right-radius: 0.5rem;
 }
 
-/* .title {
-position: absolute;
-left: 50%;
-transform: translateX(-50%);
-font-weight: bold;
-pointer-events: none;
-font-size: 3vh;
-} */
+.window-title:hover {
+    color: hwb(51 17% 7%);
+    text-shadow: 2px 2px 0 #000;
+    transition: transform 0.15s ease;
+    cursor: default;
+}
 
 .close-button {
-    margin-left: 0.5rem;
+    /* margin-left: 0.5rem; */
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3rem;
+    height: 100%;
+    background-color: transparent;
+    border-top-right-radius: 0.5rem;
     color: white;
-    transition: color 0.2s ease;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    z-index: 2;
 }
 
 .close-button:hover {
-    color: #f56565;
-    /* Tailwind's text-red-400 */
+    background-color: hwb(0 20% 1%);
 }
 
 .window-body {
     background-color: white;
     color: black;
     padding: 1rem;
-    /* p-4 */
     border-bottom-left-radius: 0.5rem;
-    /* rounded-b-lg = 0.5rem bottom corners */
     border-bottom-right-radius: 0.5rem;
     border-left: 2px solid #2d374875;
-    /* add this line */
     border-bottom: 2px solid #2d374875;
-    /* add this line */
     border-right: 2px solid #2d374875;
-    /* add this line */
 }
 
 .dragwindow {
     position: fixed;
-    width: 600px;
+    width: 850px;
     overflow: hidden;
 }
 </style>
