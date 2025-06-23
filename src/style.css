@@ -1,10 +1,14 @@
 @import "tailwindcss";
 @font-face {
-    font-family: 'Title';
+    font-family: 'TrajanPro';
     src: url('@/assets/font/TrajanPro-Bold.otf') format('opentype');
 }
 @font-face {
-    font-family: 'Content';
+    font-family: 'TrajanProR';
+    src: url('@/assets/font/TrajanPro-Regular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'garamond';
     src: url('@/assets/font/eb-garamond.12-regular.otf') format('opentype');
 }
 @font-face {
@@ -12,17 +16,42 @@
     src: url('@/assets/font/CP Font.ttf') format('truetype');
 }
 @font-face {
-    font-family: 'hkr';
-    src: url('@/assets/font/TrajanPro-Regular.ttf') format('truetype');
-}
-@font-face {
-    font-family: 'ur';
+    font-family: 'UR';
     src: url('@/assets/font/ubuntu.regular.ttf') format('truetype');
 }
 @font-face {
     font-family: 'alegreya';
     src: url('@/assets/font/alegreya-sans.regular.ttf') format('truetype');
 }
+@font-face {
+    font-family: 'AR';
+    src: url('@/assets/font/Anton-Regular.otf') format('opentype');
+}
+@font-face {
+    font-family: 'Nippo';
+    src: url('@/assets/font/Nippo-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Quilon';
+    src: url('@/assets/font/Quilon-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Raj';
+    src: url('@/assets/font/Rajdhani-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('@/assets/font/Satoshi-Bold.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'TC';
+    src: url('@/assets/font/NotoSansTC-Regular.ttf') format('truetype');
+}
+
 
 
 html, body {
@@ -32,6 +61,12 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
+    pointer-events: none;
+    z-index: -1;
+}
+
+body > * {
+    pointer-events: auto;
 }
 
 body {
@@ -39,13 +74,52 @@ body {
     flex-direction: column;
     align-items: center;
     background-color: #f8f8f8;
-    z-index: -1;
-}
-
-.title {
-    font-family: Title;
 }
 
 .content {
-    font-family: Content;
+    font-family: TC;
+}
+
+.title {
+    font-family: Nippo;
+}
+
+.TrajanPro {
+    font-family: TrajanPro;
+    letter-spacing: 2px;
+}
+
+.TrajanProR {
+    font-family: TrajanPro;
+    letter-spacing: 2px;
+}
+
+.garamond {
+    font-family: garamond;
+}
+
+.CP {
+    font-family: CP;
+    letter-spacing: 2px;
+}
+
+.UbuntuR {
+    font-family: UR;
+    letter-spacing: 2px;
+}
+
+.AR {
+    font-family: AR;
+}
+
+.Quilon {
+    font-family: Quilon;
+}
+
+.Raj {
+    font-family: Raj;
+}
+
+.Satoshi {
+    font-family: Satoshi;
 }

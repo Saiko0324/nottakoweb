@@ -1,3 +1,7 @@
+23/06/2025
+Tested new fonts and decided on them, made a main menu to display the topics, and containers that simulate a window to put the contents within.
+Fixed bugs between background and main menu pointer events. Will work on the content info next.
+
 22/06/2025
 Went outside to touch grass and didn't feel like development today, so I wrote a basic structure of what I want to show on the website.
 Also changed up the color design a bit and put in some fonts.

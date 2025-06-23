@@ -1,14 +1,12 @@
 <template>
-    <div ref="container" class="floaty-container">
-        <div
-        ref="box"
-        class="floaty-box"
-        :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
-        @mousedown.prevent="StartDrag"
-        >
+    <div
+    ref="box"
+    class="floaty-box"
+    :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
+    @mousedown.stop.prevent="StartDrag"
+    >
         <slot />
     </div>
-</div>
 </template>
 
 <script setup>
@@ -25,8 +23,6 @@ const position = ref({ x: props.initialX, y: props.initialY })
 const velocity = ref({ x: props.velocityX, y: props.velocityY })
 
 const box = ref(null)
-const container = ref(null)
-
 let animationFrameId
 let isDragging = false
 let dragOffset = { x: 0, y: 0 }
@@ -37,18 +33,18 @@ const update = () => {
         return
     }
     
-    const containerEl = container.value
     const boxEl = box.value
-    if (!containerEl || !boxEl) return
+    if (!boxEl) return
     
-    const containerRect = containerEl.getBoundingClientRect()
     const boxRect = boxEl.getBoundingClientRect()
+    const viewportWidth = window.innerWidth
+    const viewportHeight = window.innerHeight
     
     let newX = position.value.x + velocity.value.x
     let newY = position.value.y + velocity.value.y
     
-    const maxX = containerRect.width - boxRect.width
-    const maxY = containerRect.height - boxRect.height
+    const maxX = viewportWidth - boxRect.width
+    const maxY = viewportHeight * 0.9 - boxRect.height
     
     if (newX <= 0 || newX >= maxX) {
         velocity.value.x *= -1
@@ -76,20 +72,16 @@ const StartDrag = (event) => {
 
 const Drag = (event) => {
     if (!isDragging) return
-    event.preventDefault()
-    
-    const containerEl = container.value
-    const boxEl = box.value
-    if (!containerEl || !boxEl) return
-    
-    const containerRect = containerEl.getBoundingClientRect()
-    const boxRect = boxEl.getBoundingClientRect()
     
     let newX = event.clientX - dragOffset.x
     let newY = event.clientY - dragOffset.y
     
-    const maxX = containerRect.width - boxRect.width
-    const maxY = containerRect.height - boxRect.height
+    const boxEl = box.value
+    if (!boxEl) return
+    
+    const boxRect = boxEl.getBoundingClientRect()
+    const maxX = window.innerWidth - boxRect.width
+    const maxY = window.innerHeight * 0.9 - boxRect.height
     
     newX = Math.min(Math.max(newX, 0), maxX)
     newY = Math.min(Math.max(newY, 0), maxY)
@@ -115,16 +107,8 @@ onUnmounted(() => {
 </script>
 
 <style scoped>
-.floaty-container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    z-index: inherit;
-}
-
 .floaty-box {
-    position: absolute;
+    position: fixed;
     will-change: transform;
     width: 100px;
     height: 100px;

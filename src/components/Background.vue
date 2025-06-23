@@ -8,9 +8,7 @@
         :velocityX="randomVelocities[index].x"
         :velocityY="randomVelocities[index].y"
         >
-            <div class="image-wrapper">
-                <img :src="image" class="floating-image" alt="floaty takodachi"/>
-            </div>
+            <img :src="image" class="floating-image" alt="floaty takodachi"/>
         </Floaty>
     </div>
 </template>
@@ -56,28 +54,27 @@ const randomVelocities = images.value.map(() => ({
 
 <style scoped>
 .background-container {
-    position: absolute;
+    position: fixed;
     width: 100%;
     top: 10vh;
     left: 0;
     height: 90vh;
     overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
 }
 
-.image-wrapper {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.background-container > *{
+    pointer-events: auto;   
 }
 
 .floating-image {
+    position: fixed;
     width: 100%;
     height: 100%;
     object-fit: contain;
     opacity: 30%;
+    z-index: 0;
 }
 
 </style>

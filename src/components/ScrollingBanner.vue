@@ -127,6 +127,10 @@ onUnmounted(() => {
     /* display: none; */
 }
 
+.scroll-banner > * {
+    pointer-events: auto;
+}
+
 .image-wrapper {
     height: 10vh;
     width: 10vh;
