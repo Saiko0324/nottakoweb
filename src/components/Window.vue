@@ -106,12 +106,12 @@ watch(
 .dragwindow {
     position: fixed;
     width: min(53rem, 100vw);
-    height: min(38rem, 90vh);
+    height: min(38rem, calc(var(--vh, 1vh) * 90));
 }
 
 .window-header {
     position: relative;
-    height: 4.5vh;
+    height: calc(var(--vh, 1vh) * 4.5);
     background-color: #2d3748;
     display: flex;
     align-items: center;
@@ -155,7 +155,7 @@ watch(
 }
 
 .window-body {
-    height: calc(100% - 4vh);
+    height: calc(100% - calc(var(--vh, 1vh) * 4));
     background-color: white;
     border: 2px solid #2d374875;
     border-bottom-left-radius: 0.5rem;

@@ -132,10 +132,10 @@ onUnmounted(() => {
     will-change: transform;
     width: 100px;
     height: 100px;
-    min-width: 7vh;
-    min-height: 7vh;
-    max-width: 15vh;
-    max-height: 15vh;
+    min-width: calc(var(--vh, 1vh) * 7);
+    min-height: calc(var(--vh, 1vh) * 7);
+    max-width: calc(var(--vh, 1vh) * 15);
+    max-height: calc(var(--vh, 1vh) * 15);
     display: flex;
     align-items: center;
     justify-content: center;

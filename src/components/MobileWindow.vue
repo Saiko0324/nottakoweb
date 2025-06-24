@@ -29,7 +29,7 @@ const props = defineProps({
 .mobile-window-container {
     position: fixed;
     width: 100%;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
 }
 
 .mobile-window-header {

@@ -172,7 +172,7 @@ function setInitialPositions() {
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 60vh;
+    height: calc(var(--vh, 1vh) * 60);
     width: auto;
     display: flex;
     flex-direction: column;
@@ -194,8 +194,8 @@ function setInitialPositions() {
 }
 
 .menu-list li {
-    font-size: min(max(3vh, 2.2rem), 4vh);
-    padding: 1vh 2vw;
+    font-size: min(max(calc(var(--vh, 1vh) * 3), 2.2rem), calc(var(--vh, 1vh) * 4));
+    padding: calc(var(--vh, 1vh) * 1) 2vw;
     z-index: 1;
     cursor: pointer;
     user-select: none;
@@ -213,9 +213,9 @@ function setInitialPositions() {
 .dragwindow-container {
     position: fixed;
     width: 100%;
-    top: 10vh;
+    top: calc(var(--vh, 1vh) * 10);
     left: 0;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
     overflow: hidden;
     pointer-events: none;
 }

@@ -13,7 +13,7 @@
             alt="Scrolling takodachi"
             loading="eager"
             fetchpriority="low"
-            :style="{ top: item.heightoffset + 'vh', position: 'relative' }"
+            :style="{ top: `calc(var(--vh) * ${item.heightoffset})`, position: 'relative' }"
             />
         </div>
     </div>
@@ -108,7 +108,7 @@ onUnmounted(() => {
     top: 0;
     left: 0;
     right: 0;
-    height: 10vh;
+    height: calc(var(--vh, 1vh) * 10);
     overflow: visible;
     pointer-events: none;
     background-color: hwb(246 71% 0%);
@@ -122,8 +122,8 @@ onUnmounted(() => {
 }
 
 .image-wrapper {
-    height: 10vh;
-    width: 10vh;
+    height: calc(var(--vh, 1vh) * 10);
+    width: calc(var(--vh, 1vh) * 10);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -159,14 +159,14 @@ onUnmounted(() => {
     margin: 0;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 10vh;
+    font-size: calc(var(--vh, 1vh) * 10);
     z-index: 0;
     pointer-events: none;
     user-select: none;
     white-space: nowrap;
     display: flex;
     align-items: center;
-    height: 10vh;
+    height: calc(var(--vh, 1vh) * 10);
     overflow: hidden;
 }
 </style>

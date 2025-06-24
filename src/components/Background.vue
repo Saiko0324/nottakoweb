@@ -60,9 +60,9 @@ const randomVelocities = images.value.map(() => ({
 .background-container {
     position: fixed;
     width: 100%;
-    top: 10vh;
+    top: calc(var(--vh, 1vh) * 10);
     left: 0;
-    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
