@@ -1,3 +1,9 @@
+25/6/2025
+Fixed a bunch of responsive designs, made a new info window viewer for mobile, integrate drag feature into screen touch using pointer events.
+Customizing format for About info in mobile view. Will work on other info next, if I get tired I'll do other things like allowing user to customize the floating takodachi.
+I should really find an easier way to migrate info to mobile instead of manually formatting it, but I'm too tired to learn how, and too excited to see the results immediately at the same time.
+I might also start working on the light/dark mode toggle to force myself to lear TailwindCSS, since I've read that it's quite convenient with it, and I can learn to implement global buttons for future use as well.
+
 24/06/2025
 Made a lot of changes to previous things because they get messed up on zoom in, mostly on sizes to make them more responsive.
 Also made some changes to the main menu list and the draggable window component to show more visual cue.

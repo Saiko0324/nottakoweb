@@ -40,10 +40,11 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 9.  message visualizer to show my log.txt
 10. keyboard input checker
 11. input some letters and render them with gravity
-12. Colour blind mode and rgb mode
-13. Dyslexie font
+12. Colour blind mode and rbg mode
+13. Dyslexie font (never mind it costs money, so fuck that)
 14. customize takodachi speed?
 15. beta art version
+16. minimize windows/subwindows
 
 ## Notes to self
 1. bilingual texts with vue-i18n
