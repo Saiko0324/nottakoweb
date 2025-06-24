@@ -1,37 +1,38 @@
 <template>
     <div class="mainmenu-container">
         <ul class="menu-list title">
-            <li ref="aboutRef" @click="showAbout = true; bringToFront('About')">About</li>
-            <li ref="worksRef" @click="showWorks = true; bringToFront('Works')">Works</li>
-            <li ref="linksRef" @click="showLinks = true; bringToFront('Links')">Links</li>
-            <li ref="othersRef" @click="showOthers = true; bringToFront('Others')">Others</li>
-            <li ref="resumeRef" @click="showResume = true; bringToFront('Resume')">Resume</li>
-            <li ref="contactRef" @click="showContact = true; bringToFront('Contact')">Contact</li>
-            <li ref="artRef" @click="showArt = true; bringToFront('Art')">Art</li>
-            <!-- <li ref="controlsRef" @click="showControls = true; bringToFront('Controls')">Controls</li> -->
+            <li ref="aboutRef" @click="showAbout = !showAbout; bringToFront('About')">About</li>
+            <li ref="worksRef" @click="showWorks = !showWorks; bringToFront('Works')">Works</li>
+            <li ref="linksRef" @click="showLinks = !showLinks; bringToFront('Links')">Links</li>
+            <li ref="othersRef" @click="showOthers = !showOthers; bringToFront('Others')">Others</li>
+            <li ref="resumeRef" @click="showResume = !showResume; bringToFront('Resume')">Resume</li>
+            <li ref="contactRef" @click="showContact = !showContact; bringToFront('Contact')">Contact</li>
+            <li ref="artRef" @click="showArt = !showArt; bringToFront('Art')">Art</li>
+            <!-- <li ref="controlsRef" @click="showControls = !showControls; bringToFront('Controls')">Controls</li> -->
         </ul>
     </div>
     <div class="dragwindow-container">
         <Window v-model:show="showAbout" title="About" :zIndex="zIndices.About" @mousedown="bringToFront('About')" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y">
-            <p class="content">About</p>
+            <About />
+            <!-- <p class="content">About</p> -->
         </Window>
         <Window v-model:show="showWorks" title="Works" :zIndex="zIndices.Works" @mousedown="bringToFront('Works')" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y">
-            <p class="content">Works</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <Window v-model:show="showLinks" title="Links" :zIndex="zIndices.Links" @mousedown="bringToFront('Links')" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y">
-            <p class="content">Links</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <Window v-model:show="showOthers" title="Others" :zIndex="zIndices.Others" @mousedown="bringToFront('Others')" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y">
-            <p class="content">Others</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <Window v-model:show="showResume" title="Resume" :zIndex="zIndices.Resume" @mousedown="bringToFront('Resume')" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y">
-            <p class="content">Resume</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <Window v-model:show="showContact" title="Contact" :zIndex="zIndices.Contact" @mousedown="bringToFront('Contact')" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y">
-            <p class="content">Contact</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <Window v-model:show="showArt" title="Art" :zIndex="zIndices.Art" @mousedown="bringToFront('Art')" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y">
-            <p class="content">Art</p>
+            <p class="content">Work in Progress...</p>
         </Window>
         <!-- <Window v-model:show="showControls" title="Controls" :zIndex="zIndices.Controls" @mousedown="bringToFront('Controls')" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y">
             <p class="content">Controls</p>
@@ -42,6 +43,7 @@
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue';
 import Window from '@/components/Window.vue';
+import About from '@/components/About.vue';
 
 const showAbout = ref(false);
 const showWorks = ref(false);
@@ -96,38 +98,39 @@ onMounted(async () => {
 
 function setInitialPositions() {
     const offset = -20 - window.innerHeight * 0.1;
+    const windowWidth = 425;
     
     if (aboutRef.value) {
         const rect = aboutRef.value.getBoundingClientRect();
-        initialPositions.About = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.About = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (worksRef.value) {
         const rect = worksRef.value.getBoundingClientRect();
-        initialPositions.Works = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Works = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (linksRef.value) {
         const rect = linksRef.value.getBoundingClientRect();
-        initialPositions.Links = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Links = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (othersRef.value) {
         const rect = othersRef.value.getBoundingClientRect();
-        initialPositions.Others = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Others = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (resumeRef.value) {
         const rect = resumeRef.value.getBoundingClientRect();
-        initialPositions.Resume = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Resume = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (contactRef.value) {
         const rect = contactRef.value.getBoundingClientRect();
-        initialPositions.Contact = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Contact = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     if (artRef.value) {
         const rect = artRef.value.getBoundingClientRect();
-        initialPositions.Art = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+        initialPositions.Art = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     }
     // if (controlsRef.value) {
     //     const rect = controlsRef.value.getBoundingClientRect();
-    //     initialPositions.Controls = { x: rect.left + rect.width / 2 - 300, y: rect.bottom + offset };
+    //     initialPositions.Controls = { x: rect.left + rect.width / 2 - windowWidth, y: rect.bottom + offset };
     // }
 }
 </script>
@@ -148,10 +151,6 @@ function setInitialPositions() {
     z-index: 0;
 }
 
-.mainmenu-container>* {
-    pointer-events: auto;
-}
-
 .menu-list {
     list-style: none;
     margin: 0;
@@ -164,9 +163,20 @@ function setInitialPositions() {
 }
 
 .menu-list li {
-    font-size: 3vh;
+    font-size: min(max(3vh, 2.2rem), 4vh);
     padding: 1vh 2vw;
     z-index: 1;
+    cursor: pointer;
+    user-select: none;
+    pointer-events: auto;
+}
+
+.menu-list li:hover {
+    transform: translateY(-0.2em);
+    color: hwb(51 17% 7%);
+    text-shadow: 0.1em 0.1em 0 #000;
+    scale: 1.3;
+    transition: transform 0.15s ease;
 }
 
 .dragwindow-container {

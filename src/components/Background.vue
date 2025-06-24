@@ -64,10 +64,6 @@ const randomVelocities = images.value.map(() => ({
     z-index: 0;
 }
 
-.background-container > *{
-    pointer-events: auto;   
-}
-
 .floating-image {
     position: fixed;
     width: 100%;

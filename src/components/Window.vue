@@ -1,7 +1,7 @@
 <template>
-    <div class="dragwindow" ref="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @mousedown.stop @mousedown.prevent="bringToFront">
-        <div class="window-header content" @mousedown.prevent="StartDrag">
-            <span class="window-title content font-bold text-lg">{{ title }}</span>
+    <div class="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @mousedown.stop @mousedown.prevent="bringToFront">
+        <div class="window-header content" ref="dragwindowheader" @mousedown.prevent="StartDrag">
+            <span class="window-title content">{{ title }}</span>
             <button class="close-button TrajanPro" @click="emit('update:show', false)">X</button>
         </div>
         <div class="window-body content">
@@ -26,7 +26,7 @@ const props = defineProps({
 });
 
 const position = ref({ x: 0, y: 0 })
-const dragwindow = ref(null);
+const dragwindowheader = ref(null);
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
@@ -45,7 +45,7 @@ const Drag = (event) => {
     let newX = event.clientX - dragOffset.x
     let newY = event.clientY - dragOffset.y
     
-    const windowEl = dragwindow.value
+    const windowEl = dragwindowheader.value
     if (!windowEl) return
     
     const windowRect = windowEl.getBoundingClientRect()
@@ -82,23 +82,32 @@ watch(
 </script>
 
 <style scoped>
+.dragwindow {
+    position: fixed;
+    width: 53rem;
+    height: 38rem;
+    overflow: hiden;
+}
+
 .window-header {
     position: relative;
-    height: 4vh;
+    height: 4.5vh;
     background-color: #2d3748;
-    color: white;
-    padding: 0 12px 0 16px;
-    /* padding: 0.7rem; */
-    /* padding-left: 1rem; */
     display: flex;
-    /* justify-content: flex-end; */
-    justify-content: space-between;
     align-items: center;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
 }
 
+.window-title {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
 .window-title:hover {
+    scale: 1.1;
     color: hwb(51 17% 7%);
     text-shadow: 2px 2px 0 #000;
     transition: transform 0.15s ease;
@@ -106,7 +115,6 @@ watch(
 }
 
 .close-button {
-    /* margin-left: 0.5rem; */
     position: absolute;
     top: 0;
     right: 0;
@@ -127,19 +135,11 @@ watch(
 }
 
 .window-body {
+    height: calc(100% - 4vh);
     background-color: white;
-    color: black;
-    padding: 1rem;
+    border: 2px solid #2d374875;
     border-bottom-left-radius: 0.5rem;
     border-bottom-right-radius: 0.5rem;
-    border-left: 2px solid #2d374875;
-    border-bottom: 2px solid #2d374875;
-    border-right: 2px solid #2d374875;
-}
-
-.dragwindow {
-    position: fixed;
-    width: 850px;
     overflow: hidden;
 }
 </style>

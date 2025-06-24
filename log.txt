@@ -1,3 +1,10 @@
+24/06/2025
+Made a lot of changes to previous things because they get messed up on zoom in, mostly on sizes to make them more responsive.
+Also made some changes to the main menu list and the draggable window component to show more visual cue.
+Making the About.vue is difficult for me, as I've actually had to learn to use CSS for pretty much the first time in this project.
+Damn, I really need to work on my visual design skills, but I think this is a good start.
+Nonetheless, I made some progress on it, and I think making the rest of the info will be faster with this learning experience.
+
 23/06/2025
 Tested new fonts and decided on them, made a main menu to display the topics, and containers that simulate a window to put the contents within.
 Fixed bugs between background and main menu pointer events. Made a few tweaks to enchance visual clarity.

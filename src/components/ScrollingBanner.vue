@@ -1,17 +1,6 @@
 <template>
     <div class="hidden-scroll-banner-message title"> WAH </div>
     <div class="scroll-banner">
-        <div class="scrolling-image lcp-image">
-            <div class="image-wrapper">
-                <img
-                :src="images[0].src"
-                alt="LCP image"
-                loading="eager"
-                fetchpriority="high"
-                style="position: relative; top: 9px"
-                />
-            </div>
-        </div>
         <div
         v-for="item in activeImages"
         :key="item.id"
@@ -24,7 +13,7 @@
             alt="Scrolling takodachi"
             loading="eager"
             fetchpriority="low"
-            :style="{ top: item.heightoffset + 'px', position: 'relative' }"
+            :style="{ top: item.heightoffset + 'vh', position: 'relative' }"
             />
         </div>
     </div>
@@ -46,7 +35,7 @@ import img1 from '@/assets/img/ScrollingBanner/takodachi-spin-compressed-100.web
 const images = [{
     type: 'webp',
     src: img1,
-    heightoffset: 9,
+    heightoffset: 0.8,
 },
 // {
 // 	type: 'sprite',
@@ -123,6 +112,7 @@ onUnmounted(() => {
     overflow: visible;
     pointer-events: none;
     background-color: hwb(246 71% 0%);
+    user-select: none;
     /* background-color: hwb(263 76% 0%); */
     /* display: none; */
 }

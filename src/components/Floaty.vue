@@ -6,6 +6,8 @@
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
     @mousedown.stop.prevent="StartDrag"
     >
+    <!-- @mouseenter="isHovered = true"
+    @mouseleave="isHovered = false" -->
         <slot />
     </div>
 </template>
@@ -27,9 +29,10 @@ const box = ref(null)
 let animationFrameId
 let isDragging = false
 let dragOffset = { x: 0, y: 0 }
+const isHovered = ref(false)
 
 const update = () => {
-    if (isDragging) {
+    if (isDragging || isHovered.value) {
         animationFrameId = requestAnimationFrame(update)
         return
     }
@@ -113,14 +116,23 @@ onUnmounted(() => {
     will-change: transform;
     width: 100px;
     height: 100px;
+    min-width: 7vh;
+    min-height: 7vh;
+    max-width: 15vh;
+    max-height: 15vh;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: grab;
     z-index: 1;
+    user-select: none;
+    pointer-events: auto;
 }
 
 .grabbing {
-  cursor: grabbing;
+    cursor: grabbing;
+    /* outline: 2px dashed #888;
+    outline-offset: -3px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
 }
 </style>
