@@ -12,38 +12,69 @@
         </ul>
     </div>
     <div class="dragwindow-container">
-        <Window v-model:show="showAbout" title="About" :zIndex="zIndices.About" @mousedown="bringToFront('About')" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y">
-            <About />
-            <!-- <p class="content">About</p> -->
-        </Window>
-        <Window v-model:show="showWorks" title="Works" :zIndex="zIndices.Works" @mousedown="bringToFront('Works')" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <Window v-model:show="showLinks" title="Links" :zIndex="zIndices.Links" @mousedown="bringToFront('Links')" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <Window v-model:show="showOthers" title="Others" :zIndex="zIndices.Others" @mousedown="bringToFront('Others')" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <Window v-model:show="showResume" title="Resume" :zIndex="zIndices.Resume" @mousedown="bringToFront('Resume')" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <Window v-model:show="showContact" title="Contact" :zIndex="zIndices.Contact" @mousedown="bringToFront('Contact')" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <Window v-model:show="showArt" title="Art" :zIndex="zIndices.Art" @mousedown="bringToFront('Art')" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y">
-            <p class="content">Work in Progress...</p>
-        </Window>
-        <!-- <Window v-model:show="showControls" title="Controls" :zIndex="zIndices.Controls" @mousedown="bringToFront('Controls')" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y">
-            <p class="content">Controls</p>
-        </Window> -->
+        <div v-if="MobileDevice">
+            <MobileWindow v-model:show="showAbout" title="About">
+                 <About />
+            </MobileWindow>
+            <MobileWindow v-model:show="showWorks" title="Works">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <MobileWindow v-model:show="showLinks" title="Links">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <MobileWindow v-model:show="showOthers" title="Others">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <MobileWindow v-model:show="showResume" title="Resume">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <MobileWindow v-model:show="showContact" title="Contact">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <MobileWindow v-model:show="showArt" title="Art">
+                <p class="content">Work in Progress...</p>
+            </MobileWindow>
+            <!-- <MobileWindow v-model:show="showControls" title="Controls">
+                <p class="content">Controls</p>
+            </MobileWindow> -->
+        </div>
+        <div v-else>
+            <Window v-model:show="showAbout" title="About" :zIndex="zIndices.About" @mousedown="bringToFront('About')" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y">
+                <About />
+            </Window>
+            <Window v-model:show="showWorks" title="Works" :zIndex="zIndices.Works" @mousedown="bringToFront('Works')" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <Window v-model:show="showLinks" title="Links" :zIndex="zIndices.Links" @mousedown="bringToFront('Links')" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <Window v-model:show="showOthers" title="Others" :zIndex="zIndices.Others" @mousedown="bringToFront('Others')" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <Window v-model:show="showResume" title="Resume" :zIndex="zIndices.Resume" @mousedown="bringToFront('Resume')" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <Window v-model:show="showContact" title="Contact" :zIndex="zIndices.Contact" @mousedown="bringToFront('Contact')" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <Window v-model:show="showArt" title="Art" :zIndex="zIndices.Art" @mousedown="bringToFront('Art')" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y">
+                <p class="content">Work in Progress...</p>
+            </Window>
+            <!-- <Window v-model:show="showControls" title="Controls" :zIndex="zIndices.Controls" @mousedown="bringToFront('Controls')" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y">
+                <p class="content">Controls</p>
+            </Window> -->
+        </div>
     </div>
 </template>
 
 <script setup>
 import { ref, reactive, onMounted, nextTick } from 'vue';
+import { IsMobile } from '@/utils/IsMobile.js';
 import Window from '@/components/Window.vue';
+import MobileWindow from '@/components/MobileWindow.vue';
 import About from '@/components/About.vue';
+
+const MobileDevice = IsMobile();
 
 const showAbout = ref(false);
 const showWorks = ref(false);

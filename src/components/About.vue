@@ -1,24 +1,35 @@
 <template>
     <div class="about-container">
         <div class="intro-main-container">
-            <img :src="currentIcon" alt="icon-image" class="icon" @mouseenter="to_alt_icon" @mouseleave="to_normal_icon"/>
+            <img :src="currentIcon" alt="icon-image" class="icon" @mouseenter="to_alt_icon" @mouseleave="to_normal_icon" @pointerdown="to_alt_icon" @pointerup="to_normal_icon"/>
             <div class="intro-main">
-                <div class="intro-main-greet"><span class="WAH">Hey!</span> I'm <span class="name">Dickson</span></div>
-                <div class="intro-main-text">
+                <div class="intro-main-greet">
+                    <span class="WAH" :class="{ active: wahActive }" @pointerdown="wahActive = true" @pointerup="wahActive = false">Hey!</span>
+                    <span> I'm </span>
+                    <span class="name" :class="{ active: nameActive }" @pointerdown="nameActive = true" @pointerup="nameActive = false">Dickson</span>
+                </div>   
+                <div class="intro-main-text" v-if="!MobileDevice">
                     <div class="column">
                         <div> Malaysian </div>
                         <div> Coding Enjoyer </div>
-                        <div>  </div>
                     </div>
                     <div class="column">
                         <div> CS Student </div>
                         <div> Linux Enthusiast </div>
-                        <div>  </div>
                     </div>
                     <div class="column">
                         <div> Future Game Dev </div>
                         <div> Web Dev Learner </div>
-                        <div>  </div>
+                    </div>
+                </div>
+                <div class="intro-main-text" v-else>
+                    <div class="column">
+                        <div> Malaysian </div>
+                        <div> Web Dev Learner</div>
+                    </div>
+                    <div class="column">
+                        <div> CS Student </div>
+                        <div> Future Game Dev </div>
                     </div>
                 </div>
             </div>
@@ -42,7 +53,7 @@
                 <div class="intro-sub-title">Language Proficiency</div>
                 <div class="intro-sub-text">
                     Natively fluent in <strong>Chinese</strong> and <strong>English</strong>. <br>
-                    Basic comprehension in Japanese and Malay.
+                    Basic comprehension in <strong>Japanese</strong> and <strong>Malay</strong>.
                     <div class="note">
                         <div>Yes you read that right, I'm a Malaysian who's not good at Malay :(</div>
                     </div>
@@ -66,9 +77,14 @@
 <script setup>
 import Icon from '@/assets/img/Information/icon2_crop.jpg';
 import HoverIcon from '@/assets/img/Information/icon_alt.jpg'
+import { IsMobile } from '../utils/isMobile';
 
 import { ref } from 'vue'
+
+const MobileDevice = IsMobile();
 const currentIcon = ref(Icon)
+const wahActive = ref(false);
+const nameActive = ref(false);
 
 const to_alt_icon = () => currentIcon.value = HoverIcon
 const to_normal_icon = () => currentIcon.value = Icon
@@ -90,16 +106,6 @@ const to_normal_icon = () => currentIcon.value = Icon
     gap: 2rem;
     align-items: flex-start;
     padding: 2rem;
-}
-
-.intro-main-container::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 2rem;
-  right: 2rem;
-  height: 1.5px;
-  background-color: #ccc;
 }
 
 .icon {
@@ -211,8 +217,8 @@ const to_normal_icon = () => currentIcon.value = Icon
 }
 
 /* .intro-sub-title:hover {
-    color: hwb(51 17% 7%);
-    font-size: 2rem;
+color: hwb(51 17% 7%);
+font-size: 2rem;
 } */
 
 .intro-sub-text {
@@ -232,7 +238,61 @@ const to_normal_icon = () => currentIcon.value = Icon
     right: 1rem;
     bottom: 0;
     height: 1.5rem;
-    background-color: rgba(255, 255, 255);
+    background-color: white;
     pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .intro-main-container {
+        flex-direction: column;
+        align-items: center;
+        padding: 1rem;
+        gap: 0;
+    }
+    
+    .icon {
+        width: 120px;
+        height: 120px;
+    }
+    
+    .intro-main-greet {
+        font-size: min(10vw, 2.5rem);
+        font-weight: bold;
+        text-align: center;
+    }
+    
+    .intro-main-text {
+        width: 100%;
+        font-size: 1rem;
+        color: #444;
+        display: flex;
+    }
+    
+    .column {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .intro-sub-container {
+        padding: 1rem;
+    }
+    
+    .intro-sub-title {
+        font-size: 1.4rem;
+    }
+    
+    .intro-sub-text {
+        font-size: 1rem;
+    }
+    
+    .note {
+        font-size: 0.7rem;
+    }
+    .scroll-cover {
+        height: 0.5rem;
+    }
 }
 </style>

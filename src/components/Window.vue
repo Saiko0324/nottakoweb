@@ -1,8 +1,8 @@
 <template>
-    <div class="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @mousedown.stop @mousedown.prevent="bringToFront">
-        <div class="window-header content" ref="dragwindowheader" @mousedown.prevent="StartDrag">
+    <div class="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @pointerdow.stop.prevent="bringToFront">
+        <div class="window-header" ref="dragwindowheader" @pointerdown.stop.prevent="StartDrag">
             <span class="window-title content">{{ title }}</span>
-            <button class="close-button TrajanPro" @click="emit('update:show', false)">X</button>
+            <button class="close-button" @pointerdown.once.stop.prevent="emit('update:show', false)">&#10005;</button>
         </div>
         <div class="window-body content">
             <slot />
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, onUnmounted, watch } from 'vue';
 
 const emit = defineEmits(['update:show']);
 
@@ -25,6 +25,19 @@ const props = defineProps({
     y: { Number, default: -1},
 });
 
+const getEventPosition = (event) => {
+    if (event.touches && event.touches.length > 0) {
+        return {
+            x: event.touches[0].clientX,
+            y: event.touches[0].clientY
+        }
+    }
+    return {
+        x: event.clientX,
+        y: event.clientY
+    }
+}
+
 const position = ref({ x: 0, y: 0 })
 const dragwindowheader = ref(null);
 let isDragging = false;
@@ -32,41 +45,49 @@ let dragOffset = { x: 0, y: 0 };
 
 const StartDrag = (event) => {
     isDragging = true;
-    dragOffset.x = event.clientX - position.value.x
-    dragOffset.y = event.clientY - position.value.y
-    
-    document.addEventListener('mousemove', Drag);
-    document.addEventListener('mouseup', StopDrag);
+    const pos = getEventPosition(event);
+    dragOffset.x = pos.x - position.value.x;
+    dragOffset.y = pos.y - position.value.y;
+
+    document.addEventListener('pointermove', Drag);
+    document.addEventListener('pointerup', StopDrag);
 };
 
 const Drag = (event) => {
-    if (!isDragging) return
-    
-    let newX = event.clientX - dragOffset.x
-    let newY = event.clientY - dragOffset.y
-    
-    const windowEl = dragwindowheader.value
-    if (!windowEl) return
-    
-    const windowRect = windowEl.getBoundingClientRect()
-    const maxX = window.innerWidth - windowRect.width
-    const maxY = window.innerHeight * 0.9 - windowRect.height
-    
-    newX = Math.min(Math.max(newX, 0), maxX)
-    newY = Math.min(Math.max(newY, 0), maxY)
-    
-    position.value = { x: newX, y: newY }
-};
+    if (!isDragging) return;
 
+    if (event.cancelable) event.preventDefault();
+
+    const pos = getEventPosition(event);
+    let newX = pos.x - dragOffset.x;
+    let newY = pos.y - dragOffset.y;
+
+    const windowEl = dragwindowheader.value;
+    if (!windowEl) return;
+
+    const windowRect = windowEl.getBoundingClientRect();
+    const maxX = window.innerWidth - windowRect.width;
+    const maxY = window.innerHeight * 0.9 - windowRect.height;
+
+    newX = Math.min(Math.max(newX, 0), maxX);
+    newY = Math.min(Math.max(newY, 0), maxY);
+
+    position.value = { x: newX, y: newY };
+};
 const StopDrag = () => {
     isDragging = false;
-    document.removeEventListener('mousemove', Drag);
-    document.removeEventListener('mouseup', StopDrag);
+    document.removeEventListener('pointermove', Drag);
+    document.removeEventListener('pointerup', StopDrag);
 };
 
 onMounted(() => {
     position.value = { x: props.initialX, y: props.initialY };
 });
+
+onUnmounted(() => {
+    document.removeEventListener('pointermove', Drag);
+    document.removeEventListener('pointerup', StopDrag);
+})
 
 let initialized = false;
 
@@ -84,9 +105,8 @@ watch(
 <style scoped>
 .dragwindow {
     position: fixed;
-    width: 53rem;
-    height: 38rem;
-    overflow: hiden;
+    width: min(53rem, 100vw);
+    height: min(38rem, 90vh);
 }
 
 .window-header {
@@ -97,13 +117,15 @@ watch(
     align-items: center;
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    touch-action: none
 }
 
 .window-title {
+    position: absolute;
     margin-left: 1rem;
     font-size: 1.2rem;
-    font-weight: bold;
-    color: white;
 }
 
 .window-title:hover {
@@ -122,10 +144,8 @@ watch(
     height: 100%;
     background-color: transparent;
     border-top-right-radius: 0.5rem;
-    color: white;
     cursor: pointer;
     font-size: 1.2rem;
-    font-weight: bold;
     transition: background-color 0.2s ease;
     z-index: 2;
 }
@@ -142,4 +162,5 @@ watch(
     border-bottom-right-radius: 0.5rem;
     overflow: hidden;
 }
+
 </style>

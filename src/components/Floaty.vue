@@ -4,12 +4,10 @@
     class="floaty-box"
     :class="{ grabbing: isDragging }"
     :style="{ transform: `translate(${position.x}px, ${position.y}px)` }"
-    @mousedown.stop.prevent="StartDrag"
+    @pointerdown.stop.prevent="StartDrag"
     >
-    <!-- @mouseenter="isHovered = true"
-    @mouseleave="isHovered = false" -->
-        <slot />
-    </div>
+    <slot />
+</div>
 </template>
 
 <script setup>
@@ -30,6 +28,19 @@ let animationFrameId
 let isDragging = false
 let dragOffset = { x: 0, y: 0 }
 const isHovered = ref(false)
+
+const getEventPosition = (event) => {
+    if (event.touches && event.touches.length > 0) {
+        return {
+            x: event.touches[0].clientX,
+            y: event.touches[0].clientY
+        }
+    }
+    return {
+        x: event.clientX,
+        y: event.clientY
+    }
+}
 
 const update = () => {
     if (isDragging || isHovered.value) {
@@ -67,18 +78,22 @@ const update = () => {
 
 const StartDrag = (event) => {
     isDragging = true
-    dragOffset.x = event.clientX - position.value.x
-    dragOffset.y = event.clientY - position.value.y
+    const pos = getEventPosition(event)
+    dragOffset.x = pos.x - position.value.x
+    dragOffset.y = pos.y - position.value.y
     
-    document.addEventListener('mousemove', Drag)
-    document.addEventListener('mouseup', StopDrag)
+    document.addEventListener('pointermove', Drag)
+    document.addEventListener('pointerup', StopDrag)
 }
 
 const Drag = (event) => {
     if (!isDragging) return
     
-    let newX = event.clientX - dragOffset.x
-    let newY = event.clientY - dragOffset.y
+    if (event.cancelable) event.preventDefault()
+    
+    const pos = getEventPosition(event)
+    let newX = pos.x - dragOffset.x
+    let newY = pos.y - dragOffset.y
     
     const boxEl = box.value
     if (!boxEl) return
@@ -95,8 +110,8 @@ const Drag = (event) => {
 
 const StopDrag = () => {
     isDragging = false
-    document.removeEventListener('mousemove', Drag)
-    document.removeEventListener('mouseup', StopDrag)
+    document.removeEventListener('pointermove', Drag)
+    document.removeEventListener('pointerup', StopDrag)
 }
 
 onMounted(() => {
@@ -105,10 +120,11 @@ onMounted(() => {
 
 onUnmounted(() => {
     cancelAnimationFrame(animationFrameId)
-    document.removeEventListener('mousemove', Drag)
-    document.removeEventListener('mouseup', StopDrag)
+    document.removeEventListener('pointermove', Drag)
+    document.removeEventListener('pointerup', StopDrag)
 })
 </script>
+
 
 <style scoped>
 .floaty-box {
@@ -127,6 +143,7 @@ onUnmounted(() => {
     z-index: 1;
     user-select: none;
     pointer-events: auto;
+    touch-action: none;
 }
 
 .grabbing {
@@ -135,4 +152,5 @@ onUnmounted(() => {
     outline-offset: -3px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
 }
+
 </style>

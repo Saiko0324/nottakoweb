@@ -16,6 +16,7 @@
 <script setup>
 import { ref } from 'vue'
 import Floaty from '@/components/Floaty.vue'
+import { IsMobile } from '@/utils/IsMobile.js'
 
 import img1 from '@/assets/img/Background/takodachi1.png'
 import img2 from '@/assets/img/Background/takodachi2.png'
@@ -36,7 +37,10 @@ const images = ref([
 const getRandom = (min, max) => Math.random() * (max - min) + min
 
 const getVelocity = () => {
-    return (Math.random() < 0.5)? getRandom(-2.5, -0.1) || 1 : getRandom(0.1, 2.5)
+    if (IsMobile()) {
+        return (Math.random() < 0.5)? getRandom(-1, -0.1) || 1 : getRandom(0.1, 1)
+    }
+    else return (Math.random() < 0.5)? getRandom(-2.5, -0.1) || 1 : getRandom(0.1, 2.5)
 }
 
 
