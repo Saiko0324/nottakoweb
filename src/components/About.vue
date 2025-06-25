@@ -25,10 +25,12 @@
                 <div class="intro-main-text" v-else>
                     <div class="column">
                         <div> Malaysian </div>
+                        <div> Coding Enjoyer</div>
                         <div> Web Dev Learner</div>
                     </div>
                     <div class="column">
                         <div> CS Student </div>
+                        <div> Linux Enthusiast </div>
                         <div> Future Game Dev </div>
                     </div>
                 </div>
@@ -46,7 +48,7 @@
                 <div class="intro-sub-title">Education</div>
                 <div class="intro-sub-text">
                     I'm a senior at <strong>National Taiwan University</strong>, pursuing a Bachelor's degree in the
-                    Department of Computer Science and Information Engineering.
+                    Department of <strong>Computer Science and Information Engineering</strong>.
                 </div>
             </div>
             <div class="intro-sub-section">
@@ -63,7 +65,7 @@
                 <div class="intro-sub-title">Personal Stuff</div>
                 <div class="intro-sub-text">
                     <div>I'm 23 years old, born in 2002</div>
-                    <div>I like books and coffee :D</div>
+                    <div>I like coffee :D</div>
                     <div>I hate cockroaches >:(</div>
                     <div>I'm very poor :(</div>
                     <div>Give me your money >:)</div>

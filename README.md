@@ -40,7 +40,7 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 9.  message visualizer to show my log.txt
 10. keyboard input checker
 11. input some letters and render them with gravity
-12. Colour blind mode and rbg mode
+12. Colour blind mode and rgb mode
 13. Dyslexie font (never mind it costs money, so fuck that)
 14. customize takodachi speed?
 15. beta art version
@@ -50,6 +50,7 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 1. bilingual texts with vue-i18n
 2. lets encrypt to have https
 3. porkbun for a domain name to host
-4. convert png to webp for better download utizilation
+4. convert png to webp for better download utilization
 5. responsive design with @media screen and (max-width:n px)
 6. use [checklist](https://www.checklist.design/) and [webaim](https://webaim.org/) to check accessibility
+7. for mobile compatibility, use `calc(var(--vh, 1vh) * n);` instead of `vh` (disregard nav bar)
