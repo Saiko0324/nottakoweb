@@ -1,3 +1,8 @@
+27/06/2025
+Had a long discussion with my girlfriend about the visuals and she'll be the one designing them.
+Finished typing out all the needed informations, most of them need to wait for format design before putting them in place.
+I'll work on new winow viewer designs and the About.vue format first.
+
 26/6/2025
 Slight modification to directory structure, moved the main menu information components to a separate directory.
 All info components' window sizes that can be modified individually, though they are all empty for now, but its a start.

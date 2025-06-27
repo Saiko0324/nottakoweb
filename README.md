@@ -54,3 +54,5 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 5. responsive design with @media screen and (max-width:n px)
 6. use [checklist](https://www.checklist.design/) and [webaim](https://webaim.org/) to check accessibility
 7. for mobile compatibility, use `calc(var(--vh, 1vh) * n);` instead of `vh` (disregard nav bar)
+8. properly set up GitHub and Linkedin for viewing lmao
+9. make your goddamn resumes ==
