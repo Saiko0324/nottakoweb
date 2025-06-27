@@ -1,3 +1,11 @@
+26/6/2025
+Slight modification to directory structure, moved the main menu information components to a separate directory.
+All info components' window sizes that can be modified individually, though they are all empty for now, but its a start.
+Had a lot of thought about the designs and how to present the menu list, but felt tired today for implementation.
+Wrote info.md for other sections to better organize the information I want to present, might be easier to design their respective format this way as well.
+Hopefully tomorrow I can start putting the other info in place and format them.
+Side note: Had an interview for a job today, pretty confident about it, but that also means I have less time to work on this project for the rest of summer break, so much to do with so little time :(
+
 25/6/2025
 Fixed a bunch of responsive designs, made a new info window viewer for mobile, integrate drag feature into screen touch using pointer events.
 Customizing format for About info in mobile view. Will work on other info next, if I get tired I'll do other things like allowing user to customize the floating takodachi.

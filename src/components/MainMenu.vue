@@ -1,14 +1,14 @@
 <template>
     <div class="mainmenu-container">
         <ul class="menu-list title">
-            <li ref="aboutRef" @click="showAbout = !showAbout; bringToFront('About')">About</li>
-            <li ref="worksRef" @click="showWorks = !showWorks; bringToFront('Works')">Works</li>
-            <li ref="linksRef" @click="showLinks = !showLinks; bringToFront('Links')">Links</li>
-            <li ref="othersRef" @click="showOthers = !showOthers; bringToFront('Others')">Others</li>
-            <li ref="resumeRef" @click="showResume = !showResume; bringToFront('Resume')">Resume</li>
-            <li ref="contactRef" @click="showContact = !showContact; bringToFront('Contact')">Contact</li>
-            <li ref="artRef" @click="showArt = !showArt; bringToFront('Art')">Art</li>
-            <!-- <li ref="controlsRef" @click="showControls = !showControls; bringToFront('Controls')">Controls</li> -->
+            <li ref="aboutRef" @pointerdown="showAbout = !showAbout; bringToFront('About')">About</li>
+            <li ref="worksRef" @pointerdown="showWorks = !showWorks; bringToFront('Works')">Works</li>
+            <li ref="linksRef" @pointerdown="showLinks = !showLinks; bringToFront('Links')">Links</li>
+            <li ref="othersRef" @pointerdown="showOthers = !showOthers; bringToFront('Others')">Others</li>
+            <li ref="resumeRef" @pointerdown="showResume = !showResume; bringToFront('Resume')">Resume</li>
+            <li ref="contactRef" @pointerdown="showContact = !showContact; bringToFront('Contact')">Contact</li>
+            <li ref="artRef" @pointerdown="showArt = !showArt; bringToFront('Art')">Art</li>
+            <!-- <li ref="controlsRef" @pointerdown="showControls = !showControls; bringToFront('Controls')">Controls</li> -->
         </ul>
     </div>
     <div class="dragwindow-container">
@@ -17,7 +17,8 @@
                  <About />
             </MobileWindow>
             <MobileWindow v-model:show="showWorks" title="Works">
-                <p class="content">Work in Progress...</p>
+                <Works />
+                <!-- <p class="content">Work in Progress...</p> -->
             </MobileWindow>
             <MobileWindow v-model:show="showLinks" title="Links">
                 <p class="content">Work in Progress...</p>
@@ -39,29 +40,60 @@
             </MobileWindow> -->
         </div>
         <div v-else>
-            <Window v-model:show="showAbout" title="About" :zIndex="zIndices.About" @mousedown="bringToFront('About')" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y">
+            <Window v-model:show="showAbout"
+            title="About"
+            :zIndex="zIndices.About" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y"
+            @pointerdown="bringToFront('About')" @bringToFront="bringToFront('About')">
                 <About />
             </Window>
-            <Window v-model:show="showWorks" title="Works" :zIndex="zIndices.Works" @mousedown="bringToFront('Works')" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showWorks"
+            title="Works"
+            :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
+                <Works />
             </Window>
-            <Window v-model:show="showLinks" title="Links" :zIndex="zIndices.Links" @mousedown="bringToFront('Links')" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showLinks"
+            title="Links"
+            :zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
+                <Links />
             </Window>
-            <Window v-model:show="showOthers" title="Others" :zIndex="zIndices.Others" @mousedown="bringToFront('Others')" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showOthers"
+            title="Others"
+            :zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Others')" @bringToFront="bringToFront('Others')">
+                <Others />
             </Window>
-            <Window v-model:show="showResume" title="Resume" :zIndex="zIndices.Resume" @mousedown="bringToFront('Resume')" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showResume"
+            title="Resume"
+            :zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
+                <Resume />
             </Window>
-            <Window v-model:show="showContact" title="Contact" :zIndex="zIndices.Contact" @mousedown="bringToFront('Contact')" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showContact"
+            title="Contact"
+            :zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
+                <Contact />
             </Window>
-            <Window v-model:show="showArt" title="Art" :zIndex="zIndices.Art" @mousedown="bringToFront('Art')" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y">
-                <p class="content">Work in Progress...</p>
+            <Window v-model:show="showArt"
+            title="Art"
+            :zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
+                <Art />
             </Window>
-            <!-- <Window v-model:show="showControls" title="Controls" :zIndex="zIndices.Controls" @mousedown="bringToFront('Controls')" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y">
-                <p class="content">Controls</p>
+            <!-- <Window v-model:show="showControls"
+            title="Controls"
+            :zIndex="zIndices.Controls" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y"
+            :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Controls')">
+                <Controls />
             </Window> -->
         </div>
     </div>
@@ -72,7 +104,14 @@ import { ref, reactive, onMounted, nextTick } from 'vue';
 import { IsMobile } from '@/utils/IsMobile.js';
 import Window from '@/components/Window.vue';
 import MobileWindow from '@/components/MobileWindow.vue';
-import About from '@/components/About.vue';
+import About from '@/components/Information/About.vue';
+import Works from '@/components/Information/Works.vue';
+import Links from '@/components/Information/Links.vue';
+import Others from '@/components/Information/Others.vue';
+import Resume from '@/components/Information/Resume.vue';
+import Contact from '@/components/Information/Contact.vue';
+import Art from '@/components/Information/Art.vue';
+// import Controls from '@/components/Controls.vue';
 
 const MobileDevice = IsMobile();
 
@@ -128,7 +167,7 @@ onMounted(async () => {
 });
 
 function setInitialPositions() {
-    const offset = -20 - window.innerHeight * 0.1;
+    const offset = 20
     const windowWidth = 425;
     
     if (aboutRef.value) {
@@ -213,9 +252,12 @@ function setInitialPositions() {
 .dragwindow-container {
     position: fixed;
     width: 100%;
-    top: calc(var(--vh, 1vh) * 10);
+    /* top: calc(var(--vh, 1vh) * 10);
+    height: calc(var(--vh, 1vh) * 90); */
     left: 0;
-    height: calc(var(--vh, 1vh) * 90);
+    top: 0;
+    height: calc(var(--vh, 1vh) * 100);
+    
     overflow: hidden;
     pointer-events: none;
 }

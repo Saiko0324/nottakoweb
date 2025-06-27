@@ -79,7 +79,7 @@
 <script setup>
 import Icon from '@/assets/img/Information/icon2_crop.jpg';
 import HoverIcon from '@/assets/img/Information/icon_alt.jpg'
-import { IsMobile } from '../utils/isMobile';
+import { IsMobile } from '../../utils/isMobile';
 
 import { ref } from 'vue'
 
@@ -164,7 +164,7 @@ const to_normal_icon = () => currentIcon.value = Icon
     position: absolute;
     left: 0;
     top: 0;
-    color: hwb(51 17% 7%);
+    color: #edd02b;
     opacity: 0;
 }
 
@@ -248,7 +248,7 @@ font-size: 2rem;
     .intro-main-container {
         flex-direction: column;
         align-items: center;
-        padding: 1rem;
+        padding: 1rem 0rem 1rem 0rem;
         gap: 0;
     }
     
@@ -271,15 +271,11 @@ font-size: 2rem;
     }
     
     .column {
-        display: flex;
-        flex: 1;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        white-space: nowrap;
     }
     
     .intro-sub-container {
-        padding: 1rem;
+        padding: 0 1rem 1rem 1rem;
     }
     
     .intro-sub-title {

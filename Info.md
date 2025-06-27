@@ -1,18 +1,28 @@
 # Info
 
 ## About
-### Introduction
-Hi, I'm Dickson.
-I'm interested in books, games, and creating fun (weird) projects.
-Currently learning web development.
+Malaysian
+Coding Enjoyer
+CS Student
+Linux Enthusiast
+Future Game Dev
+Web Dev Learner
 
-### Education
+### <font color="orange">Introduction</font>
+Hi, I'm Dickson.
+I like books, games, and creating fun (weird) projects.
+Currently learning front-end web development.
+
+### <font color="orange">Education</font>
 I'm a senior at National Taiwan University, pursuing a Bachelor's degree in the Department of Computer Science and Information Engineering.
 
-### Language Proficiency
-Native fluency in Chinese and English. Basic comprehension in Japanese and Malay.
+### <font color="orange">Language Proficiency</font>
+Natively fluent in <strong>Chinese</strong> and <strong>English</strong>.
+Basic comprehension in <strong>Japanese</strong> and <strong>Malay</strong>.
 
-### Personal Stuff
+<sub>Yes you read that right, I'm a Malaysian who's not good at Malay :\(</sub>
+
+### <font color="orange">Personal Stuff</font>
 I'm 23 years old, born in 2002
 I like coffee \:D
 I hate cockroaches >\:(
@@ -20,19 +30,60 @@ I'm very poor \:(
 Give me your money >:)
 
 ## Works
-### Development Skills
+### <font color="orange">Development Skills</font>
+#### Programming Languages:
+C, C++, C#, Python, JavaScript, HTML/CSS
 
-### Games
-#### One2PlayerGame
+#### Technologies & Tools:
+Git, GitHub, Visual Studio Code, Vue.js, Vite, Unity
+
+#### Domains:
+Game Design & Development, Web Development
+
+### <font color="orange">Games</font>
 #### CAGED
+Team Project - Unity | 1-month dev cycle
+Short Description: It's a game with rhythm we made (not a rhythm game)! Play as a slime and dissolve toilet paper to save your kids!
+Details:
+Led a team of 6 to build a Unity game from the ground up. I mainly handled the design and implementation of core mechanics like player/enemy movement and attacks, and helped balance the game after playtesting. I also managed our timeline, coordinated the team’s tasks, and made an ad video to promote it.
+put a youtube video here?
+[Play CAGED on Itch.io](https://fhvirus.itch.io/caged)
+<sub>Forever grateful to my incredible teammates, couldn’t have done it without them!</sub>
+
 #### No Translation!
-#### Gemini Geoguess
+Team Project – Flask + Gemini API | 3-week dev cycle
+Short Description: A language learning game forcing you to converse with a chatbot and learn their language?
+Details:
+Built a chat based language game inspired by Viossa and Linguistic Olympiads, where players reconstruct a target sentence using only contextual clues from a chatbot that speaks exclusively in the target language. I helped with proposing some functions and implemented session storage alongside some core game logic, and debugged user flows to improve the experience.
+[View on GitHub](https://github.com/Saiko0324/LAL_Final_Spring25)
+<sub>Huge thanks to my team, I had fun building this one!</sub>
 
-### Web
+#### Geoguessr AI Bot
+Team Project – Vue + Firebase + Gemini API | 3-week dev cycle
+Short Description: We like to play Geoguessr, and some people have no friends, so we integrated AI players to play with us.
+Details:
+Extended an open source GeoGuessr clone by adding a real-time AI bot that competes against human players using Gemini's image analysis. I implemented the API layer that connects the bot's logic with game state, built the interface for adjusting bot count, handled real-time read/write of bot data to Firebase, and integrated bot guesses into the frontend UI and scoreboard.
+[View on GitHub](https://github.com/Saiko0324/Geoguess)
+
+<sub>This was more tiring than I expected ngl \:')</sub>
+
+#### One2PlayerGame
+Team Project – Jack (Nand2Tetris) | 2-week dev cycle
+Short Description: One2PlayerGame is one two player game, utilizing the restrictions of black and white to create a visually trippy puzzle game.
+Details:
+We designed and built a cooperative two player puzzle game in the Jack language. I focused on game design, visual elements, object graphics, and level creation, making the most of a strict black and white palette and tile based logic.
+[View on GitHub](https://github.com/Saiko0324/One2PlayerGame)
+<sub>This is my first ever game project, and I'm thinking of making a new rendition \:D</sub>
+
+### <font color="orange">Web</font>
 #### This website
-#### MAZ(black history?)
+Personal Project
 
-### Writing
+
+#### MAZ(black history?)
+Idk maybe some day I might put it up here.
+
+### <font color="orange">Bonus: Writing</font>
 Story for Short Film: [Still Human](https://www.youtube.com/watch?v=th_tsET5CQU&list=LL)
 
 ## Links

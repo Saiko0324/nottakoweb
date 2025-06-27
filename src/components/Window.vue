@@ -1,5 +1,6 @@
 <template>
-    <div class="dragwindow" v-if="show" :style="`transform: translate(${position.x}px, ${position.y}px); z-index: ${zIndex};`" @pointerdow.stop.prevent="bringToFront">
+    <div class="dragwindow" v-if="show"
+    :style="[windowSize, { transform: `translate(${position.x}px, ${position.y}px)`, zIndex }]">
         <div class="window-header" ref="dragwindowheader" @pointerdown.stop.prevent="StartDrag">
             <span class="window-title content">{{ title }}</span>
             <button class="close-button" @pointerdown.once.stop.prevent="emit('update:show', false)">&#10005;</button>
@@ -13,7 +14,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 
-const emit = defineEmits(['update:show']);
+const emit = defineEmits(['update:show', 'bringToFront']);
 
 const props = defineProps({
     title: { type: String, default: 'Window' },
@@ -23,6 +24,7 @@ const props = defineProps({
     initialY: { type: Number, default: 100 },
     x: { Number, default: -1},
     y: { Number, default: -1},
+    windowSize: { type: Object, default: () => ({}) },
 });
 
 const getEventPosition = (event) => {
@@ -44,6 +46,7 @@ let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
 
 const StartDrag = (event) => {
+    emit('bringToFront');
     isDragging = true;
     const pos = getEventPosition(event);
     dragOffset.x = pos.x - position.value.x;
@@ -67,7 +70,8 @@ const Drag = (event) => {
 
     const windowRect = windowEl.getBoundingClientRect();
     const maxX = window.innerWidth - windowRect.width;
-    const maxY = window.innerHeight * 0.9 - windowRect.height;
+    const maxY = window.innerHeight - windowRect.height;
+    // const maxY = window.innerHeight * 0.9 - windowRect.height;
 
     newX = Math.min(Math.max(newX, 0), maxX);
     newY = Math.min(Math.max(newY, 0), maxY);
@@ -119,7 +123,7 @@ watch(
     border-top-right-radius: 0.5rem;
     color: white;
     font-weight: bold;
-    touch-action: none
+    touch-action: none;
 }
 
 .window-title {
