@@ -11,6 +11,16 @@
     src: url('@/assets/font/NotoSansTC-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'PixelM';
+    src: url('@/assets/font/PixelMplus10-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PixelM-bold';
+    src: url('@/assets/font/PixelMplus10-Bold.ttf') format('truetype');
+}
+
 html, body {
     overscroll-behavior: none;
     overflow: hidden;
@@ -39,6 +49,14 @@ body {
 
 .content {
     font-family: TC;
+}
+
+.sub-title {
+    font-family: PixelM;
+}
+
+.sub-title-bold {
+    font-family: PixelM-bold;
 }
 
 /* @font-face {

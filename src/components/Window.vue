@@ -2,7 +2,9 @@
     <div class="dragwindow" v-if="show"
     :style="[windowSize, { transform: `translate(${position.x}px, ${position.y}px)`, zIndex }]">
         <div class="window-header" ref="dragwindowheader" @pointerdown.stop.prevent="StartDrag">
-            <span class="window-title content">{{ title }}</span>
+            <span class="window-title sub-title-bold">{{ title }} 
+                <img v-if="img" :src="img" alt="header-image" class="header-img" :style="{ transform: `translateY(${imgYOffset})` }"/>
+            </span>
             <button class="close-button" @pointerdown.once.stop.prevent="emit('update:show', false)">&#10005;</button>
         </div>
         <div class="window-body content">
@@ -18,6 +20,8 @@ const emit = defineEmits(['update:show', 'bringToFront']);
 
 const props = defineProps({
     title: { type: String, default: 'Window' },
+    img: { type: String, default: '@/assets/img/Information/About_Tako.webp' },
+    imgYOffset: { type: String, default: '-45%' },
     show: { type: Boolean, default: false, required: true },
     zIndex: { type: Number, default: 1 },
     initialX: { type: Number, default: 100 },
@@ -71,7 +75,6 @@ const Drag = (event) => {
     const windowRect = windowEl.getBoundingClientRect();
     const maxX = window.innerWidth - windowRect.width;
     const maxY = window.innerHeight - windowRect.height;
-    // const maxY = window.innerHeight * 0.9 - windowRect.height;
 
     newX = Math.min(Math.max(newX, 0), maxX);
     newY = Math.min(Math.max(newY, 0), maxY);
@@ -108,63 +111,148 @@ watch(
 
 <style scoped>
 .dragwindow {
-    position: fixed;
-    width: min(53rem, 100vw);
-    height: min(38rem, calc(var(--vh, 1vh) * 90));
+    position: absolute;
+    width: min(50rem, 100vw);
+    height: min(42rem, calc(var(--vh, 1vh) * 90));
+    border: 0.35rem solid #958dfa;
+    border-radius: 0.5rem;
+    box-shadow: 0.4rem 0.4rem#cccccc;
 }
 
 .window-header {
     position: relative;
-    height: calc(var(--vh, 1vh) * 4.5);
-    background-color: #2d3748;
-    display: flex;
-    align-items: center;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    height: 3.5rem;
     color: white;
-    font-weight: bold;
+    background-color: #958dfa;
+    margin: -0.2rem;
+    border-top-left-radius: 0.8rem;
     touch-action: none;
+    box-sizing: border-box;
 }
 
 .window-title {
     position: absolute;
-    margin-left: 1rem;
-    font-size: 1.2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.5rem;
+    font-size: 2.5rem;
+    display: inline-block;
 }
 
-.window-title:hover {
-    scale: 1.1;
-    color: hwb(51 17% 7%);
-    text-shadow: 2px 2px 0 #000;
-    transition: transform 0.15s ease;
-    cursor: default;
+.header-img {
+    position: absolute;
+    top: 50%;
+    left: 100%;
+    height: 100%;
+    width: auto;
 }
 
 .close-button {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: -1.5rem;
+    right: -1.5rem;
     width: 3rem;
-    height: 100%;
-    background-color: transparent;
-    border-top-right-radius: 0.5rem;
+    height: 3rem;
+    border-radius: 100%;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1.7rem;
+    font-weight: 900;
+    background-color: #ffdc17;
     transition: background-color 0.2s ease;
-    z-index: 2;
-}
-
-.close-button:hover {
-    background-color: hwb(0 20% 1%);
+    z-index: 1;
 }
 
 .window-body {
-    height: calc(100% - calc(var(--vh, 1vh) * 4));
+    height: calc(100% - 3.1rem);
     background-color: white;
-    border: 2px solid #2d374875;
-    border-bottom-left-radius: 0.5rem;
-    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.8rem;
+    border-bottom-right-radius: 0.8rem;
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 </style>
+
+@media (max-width: 768px) {
+  .intro-main-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .intro-main {
+    flex-direction: column;
+    font-size: 2rem;
+    gap: 0.5rem;
+    text-align: center;
+    padding: 0;
+  }
+
+  .intro-main::before {
+    content: none;
+  }
+
+  .roles-container {
+    padding: 0 1rem 1.5rem 1rem;
+  }
+
+  .intro-main-text {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+    font-size: 1.1rem;
+  }
+
+  .column {
+    align-items: center;
+    padding: 0;
+    border: none;
+  }
+
+  .column + .column {
+    padding-top: 1rem;
+    border-top: 1px solid #ffdc17;
+  }
+
+  .intro-sub-container {
+    padding: 0 1rem 2rem 1rem;
+  }
+
+  .intro-sub-title {
+    font-size: 1.3rem;
+    text-align: center;
+  }
+
+  .intro-sub-text {
+    font-size: 1rem;
+    text-align: center;
+    padding-left: 0;
+    margin-top: 0.5rem;
+  }
+
+  .note {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+  }
+
+  .fun-facts-list {
+    padding-left: 1.2rem;
+    text-align: left;
+  }
+
+  .fun-facts-list li {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .scroll-cover {
+    height: 1rem;
+  }
+}

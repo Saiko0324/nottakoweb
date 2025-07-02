@@ -5,8 +5,9 @@
         class="mobile-window-container"
         >
         <div class="mobile-window-header">
-            <span class="mobile-window-title content">{{ title }}</span>
-            <button class="close-button" @pointerdown.once.stop.prevent="emit('update:show', false)">&#10005;</button>
+            <span class="mobile-window-title sub-title-bold">{{ title }}</span>
+            <img v-if="img" :src="img" alt="header-image" class="header-img" :style="{ transform: `translateY(${imgYOffset})` }"/>
+            <button class="close-button" @pointerdown.once.stop.prevent="emit('update:show', false)">▼</button>
         </div>
         <div class="mobile-window-body content">
             <slot />
@@ -20,53 +21,64 @@ const emit = defineEmits(['update:show']);
 
 const props = defineProps({
     title: { type: String, default: 'Mobile Window' },
+    img: { type: String, default: '@/assets/img/Information/About_Tako.webp' },
+    imgYOffset: { type: String, default: '-45%' },
     show: {type: Boolean, default: false, required: true},
+    showing: { type: Boolean, default: false },
 });
 
 </script>
 
 <style scoped>
 .mobile-window-container {
-    position: fixed;
-    width: 100%;
+    position: absolute;
+    left: 0;
+    width: 100vw;
     height: calc(var(--vh, 1vh) * 100);
 }
 
 .mobile-window-header {
     position: relative;
-    height: 3rem;
-    background: #2d3748;
-    display: flex;
-    align-items: center;
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    height: 3.5rem;
     color: white;
-    font-weight: bold;
+    background: #958dfa;
 }
 
 .mobile-window-title {
     position: absolute;
-    margin-left: 1rem;
-    font-size: 1.2rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    letter-spacing: 0.5rem;
+    font-size: 2.5rem;
+    display: inline-block;
 }
+
+.header-img {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 100%;
+    width: auto;
+}
+
 
 .close-button {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 3rem;
+    right: 1rem;
     height: 100%;
-    border-top-right-radius: 0.5rem;
-    cursor: pointer;
-    font-size: 1.2rem;
-    z-index: 2;
+    font-size: 1rem;
+    color: #ffdc17;
+    z-index: 1;
 }
 
 .mobile-window-body {
-    height: calc(100% - 3rem);
+    height: calc(100% - 3.5rem);
     background-color: white;
-    border: 2px solid #2d374875;
+    /* border: 2px solid #2d374875; */
     overflow: hidden;
+    box-sizing: border-box;
 }
 
 .slide-up-enter-active,

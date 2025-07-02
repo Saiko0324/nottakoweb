@@ -2,57 +2,57 @@
     <div class="about-container">
         <div class="intro-main-container">
             <img :src="currentIcon" alt="icon-image" class="icon" @mouseenter="to_alt_icon" @mouseleave="to_normal_icon" @pointerdown="to_alt_icon" @pointerup="to_normal_icon"/>
-            <div class="intro-main">
-                <div class="intro-main-greet">
-                    <span class="WAH" :class="{ active: wahActive }" @pointerdown="wahActive = true" @pointerup="wahActive = false">Hey!</span>
-                    <span> I'm </span>
-                    <span class="name" :class="{ active: nameActive }" @pointerdown="nameActive = true" @pointerup="nameActive = false">Dickson</span>
-                </div>   
-                <div class="intro-main-text" v-if="!MobileDevice">
-                    <div class="column">
-                        <div> Malaysian </div>
-                        <div> Coding Enjoyer </div>
-                    </div>
-                    <div class="column">
-                        <div> CS Student </div>
-                        <div> Linux Enthusiast </div>
-                    </div>
-                    <div class="column">
-                        <div> Future Game Dev </div>
-                        <div> Web Dev Learner </div>
-                    </div>
+            <div class="intro-main sub-title">
+                <span class="WAH" :class="{ active: wahActive }" @pointerdown="wahActive = true" @pointerup="wahActive = false">Hi, </span>
+                <span> I'm </span>
+                <span class="name" :class="{ active: nameActive }" @pointerdown="nameActive = true" @pointerup="nameActive = false">Dickson.</span>
+            </div>
+        </div>
+        <div class="roles-container">
+            <div class="intro-main-text" v-if="!MobileDevice">
+                <div class="column">
+                    <div> Malaysian </div>
+                    <div> Coding Enjoyer </div>
                 </div>
-                <div class="intro-main-text" v-else>
-                    <div class="column">
-                        <div> Malaysian </div>
-                        <div> Coding Enjoyer</div>
-                        <div> Web Dev Learner</div>
-                    </div>
-                    <div class="column">
-                        <div> CS Student </div>
-                        <div> Linux Enthusiast </div>
-                        <div> Future Game Dev </div>
-                    </div>
+                <div class="column">
+                    <div> CS Student </div>
+                    <div> Linux Enthusiast </div>
+                </div>
+                <div class="column">
+                    <div> Future Game Dev </div>
+                    <div> Web Dev Learner </div>
+                </div>
+            </div>
+            <div class="intro-main-text" v-else>
+                <div class="column">
+                    <div> Malaysian </div>
+                    <div> Coding Enjoyer</div>
+                    <div> Web Dev Learner</div>
+                </div>
+                <div class="column">
+                    <div> CS Student </div>
+                    <div> Linux Enthusiast </div>
+                    <div> Future Game Dev </div>
                 </div>
             </div>
         </div>
         <div class="intro-sub-container">
             <div class="intro-sub-section">
-                <div class="intro-sub-title">Introduction</div>
+                <div class="intro-sub-title">INTRODUCTION</div>
                 <div class="intro-sub-text">
                     I like books, games, and creating fun (weird) projects. <br>
                     Currently learning front-end web development.
                 </div>
             </div>
             <div class="intro-sub-section">
-                <div class="intro-sub-title">Education</div>
+                <div class="intro-sub-title">EDUCATION</div>
                 <div class="intro-sub-text">
                     I'm a senior at <strong>National Taiwan University</strong>, pursuing a Bachelor's degree in the
                     Department of <strong>Computer Science and Information Engineering</strong>.
                 </div>
             </div>
             <div class="intro-sub-section">
-                <div class="intro-sub-title">Language Proficiency</div>
+                <div class="intro-sub-title">LANGUAGE PROFICIENCY</div>
                 <div class="intro-sub-text">
                     Natively fluent in <strong>Chinese</strong> and <strong>English</strong>. <br>
                     Basic comprehension in <strong>Japanese</strong> and <strong>Malay</strong>.
@@ -62,13 +62,20 @@
                 </div>
             </div>
             <div class="intro-sub-section-final">
-                <div class="intro-sub-title">Personal Stuff</div>
+                <div class="intro-sub-title">PERSONAL STUFF</div>
                 <div class="intro-sub-text">
-                    <div>I'm 23 years old, born in 2002</div>
+                    <ul class="fun-facts-list">
+                        <li>I'm 23 years old, born in 2002</li>
+                        <li>I like coffee :D</li>
+                        <li>I hate cockroaches >:(</li>
+                        <li>I'm very poor :(</li>
+                        <li>Give me your money >:)</li>
+                    </ul>
+                    <!-- <div>I'm 23 years old, born in 2002</div>
                     <div>I like coffee :D</div>
                     <div>I hate cockroaches >:(</div>
                     <div>I'm very poor :(</div>
-                    <div>Give me your money >:)</div>
+                    <div>Give me your money >:)</div> -->
                 </div>
             </div>
         </div>
@@ -105,36 +112,47 @@ const to_normal_icon = () => currentIcon.value = Icon
     position: relative;
     flex-shrink: 0;
     display: flex;
-    gap: 2rem;
-    align-items: flex-start;
-    padding: 2rem;
+    gap: 6.5rem;
+    padding: 1.5rem 3rem 1.5rem 5rem;
 }
 
 .icon {
-    height: 170px;
-    width: 170px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #ccc;
+    border: 2px solid #cccccc;
     flex-shrink: 0;
 }
 
 .intro-main {
+    font-size: 2.8rem;
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.intro-main-greet {
-    font-size: 3rem;
-    font-weight: bold;
-    margin-bottom: 0.5rem;
+.intro-main::before {
+    content: "";
+    position: absolute;
+    left: calc(150px + 11.5rem);
+    align-items: center;
+    transform: translateY(140%);
+    right: 6.64rem;
+    height: 0.5rem;
+    background-color: #ffdc17;
+    z-index: 0;
+}
+
+.intro-main span {
+    position: relative;
+    z-index: 1;
 }
 
 .WAH {
     position: relative;
     display: inline-block;
+    letter-spacing: 0.3rem;
 }
 
 .WAH::after {
@@ -164,7 +182,7 @@ const to_normal_icon = () => currentIcon.value = Icon
     position: absolute;
     left: 0;
     top: 0;
-    color: #edd02b;
+    color: #9572E2;
     opacity: 0;
 }
 
@@ -176,11 +194,15 @@ const to_normal_icon = () => currentIcon.value = Icon
     opacity: 1;
 }
 
+.roles-container {
+    padding: 0 5rem 1.5rem 5.5rem;
+}
+
 .intro-main-text {
     font-size: 1.2rem;
-    color: #444;
     display: flex;
     gap: 1rem;
+    min-height: 5rem;
 }
 
 .column {
@@ -188,23 +210,22 @@ const to_normal_icon = () => currentIcon.value = Icon
     flex: 1;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: left;
 }
 
 .column + .column {
-    border-left: 1px solid #ccc;
-    padding-left: 1rem;
+    border-left: 0.15rem solid #ffdc17;
+    padding-left: 2rem;
 }
 
 .intro-sub-container {
     flex: 1;
     overflow-y: auto;
-    padding: 1rem 2.5rem 1.5rem 2.5rem;
-    border-bottom-right-radius: 1rem;
+    padding: 1rem 4.5rem 2rem 4.5rem;
 }
 
 .intro-sub-section {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
 }
 
 .intro-sub-section-final {
@@ -212,25 +233,37 @@ const to_normal_icon = () => currentIcon.value = Icon
 }
 
 .intro-sub-title {
-    font-size: 1.7rem;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 0.5rem;
-    color: black;
+    font-family: PixelM;
+    display: inline-block;
+    color: white;
+    background-color: #958dfa;
+    font-size: 1.5rem;
+    padding: 0rem 1rem;
+    border-radius: 0.5rem;
 }
 
-/* .intro-sub-title:hover {
-color: hwb(51 17% 7%);
-font-size: 2rem;
-} */
-
 .intro-sub-text {
-    font-size: 1.2rem;
-    color: #444;
-    margin-top: 0.5rem;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.fun-facts-list li {
+    position: relative;
+    padding-left: 1rem;
+}
+
+.fun-facts-list li::before {
+    content: "▼";
+    position: absolute;
+    left: 0;
+    top: 0.4rem;
+    color: #ffdc17;
+    font-size: 0.6rem;
 }
 
 .note {
-    font-size: 1rem;
+    font-size: 0.8rem;
     margin-top: 0.5rem;
 }
 
@@ -244,36 +277,91 @@ font-size: 2rem;
     pointer-events: none;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 541px) and (max-width: 768px) {
+    .intro-main-container {
+        gap: 1rem;
+        padding: 2.5rem;
+        justify-content: space-between;
+    }
+
+    .intro-main {
+        font-size: 2.5rem;
+        margin-left: auto;
+        border-top: 0.2rem solid #ffdc17;
+        border-bottom: 0.2rem solid #ffdc17;
+    }
+    
+    .intro-main::before {
+        background-color: transparent;
+    }
+
+    .roles-container {
+        padding: 1rem;
+    }
+    
+    .intro-main-text {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        gap: 0.5rem;
+    }
+    
+    .column {
+        align-items: center;
+        white-space: nowrap;
+        padding-right: 1rem;
+    }
+    
+    .intro-sub-container {
+        padding: 1rem 2rem;
+    }
+
+    .scroll-cover {
+        height: 0;
+    }
+}
+
+@media (max-width: 540px) {
     .intro-main-container {
         flex-direction: column;
         align-items: center;
-        padding: 1rem 0rem 1rem 0rem;
-        gap: 0;
+        padding: 1rem;
+        gap: 1rem;
     }
     
+    .intro-main {
+        font-size: min(10vw, 2.5rem);
+        justify-content: center;
+        gap: 1.5rem;
+        padding-left: 1rem;
+        border-left: 0.2rem solid #ffdc17;
+        border-right: 0.2rem solid #ffdc17;
+    }
+
+    .intro-main::before {
+        background-color: transparent;
+    }
+
     .icon {
         width: 120px;
         height: 120px;
     }
     
-    .intro-main-greet {
-        font-size: min(10vw, 2.5rem);
-        font-weight: bold;
-        text-align: center;
-    }
-    
     .intro-main-text {
-        width: 100%;
+        justify-content: center;
         font-size: 1rem;
-        color: #444;
-        display: flex;
     }
     
     .column {
+        align-items: center;
         white-space: nowrap;
+        padding-right: min(1rem, 10vw);
     }
     
+    .column + .column {
+        padding-left: min(2rem, 20vw);
+    }
+
     .intro-sub-container {
         padding: 0 1rem 1rem 1rem;
     }
@@ -290,7 +378,7 @@ font-size: 2rem;
         font-size: 0.7rem;
     }
     .scroll-cover {
-        height: 0.5rem;
+        height: 0;
     }
 }
 </style>
