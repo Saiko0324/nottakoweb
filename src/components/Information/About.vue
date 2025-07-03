@@ -71,11 +71,6 @@
                         <li>I'm very poor :(</li>
                         <li>Give me your money >:)</li>
                     </ul>
-                    <!-- <div>I'm 23 years old, born in 2002</div>
-                    <div>I like coffee :D</div>
-                    <div>I hate cockroaches >:(</div>
-                    <div>I'm very poor :(</div>
-                    <div>Give me your money >:)</div> -->
                 </div>
             </div>
         </div>

@@ -77,17 +77,22 @@ We designed and built a cooperative two player puzzle game in the Jack language.
 ### <font color="orange">Web</font>
 #### This website
 Solo Project – Vue + Tailwind(?) | Summer 2025
-A passion project built to house my work, experiments, and the occasional strange ideas. Built the frontend from scratch with a focus on responsiveness and modular design. Visuals were designed by <font color="cyan">PJyun</font>, and I coded it all out by hand.
+Short Description:A passion project built to house my work, experiments, and the occasional strange ideas.
+Details:
+Built the frontend from scratch with a focus on responsiveness and modular design. Visuals were designed by <font color="cyan">PJyun</font>, and I coded it all out by hand.
 It’s static for now, but I’m planning to hook it up with a backend in the future.
 [View on GitHub](https://github.com/Saiko0324/nottakoweb)
-<sub>“Just keep making stuff. Don’t worry about it.” — PirateSoftware (probably)</sub>
+<sub>"Just keep making stuff, Don't worry about it." — PirateSoftware (probably)</sub>
 
 #### MAZ(black history?)
 Ion know maybe some day I might put it up here.
 
 ### <font color="orange">Bonus: Writing</font>
 Solo Work – Narrative Writing | Collaboration Project
-Wrote the story and treatment for a short film centered on the internal experiences of depression. Developed the emotional arc, themes, and tone to support a visual concept directed by a friend of mine, focusing on the silent conflict between pain and persistence, and the delicate balance between isolation and hope.
+Short Description:
+Wrote the story and treatment for a short film centered on the internal experiences of depression.
+Details:
+Developed the emotional arc, themes, and tone to support a visual concept directed by a friend of mine, focusing on the silent conflict between pain and persistence, and the delicate balance between isolation and hope.
 [Short Film: Still Human](https://www.youtube.com/watch?v=th_tsET5CQU&list=LL)
 <sub>A personal story about mental health, brought to life by a friend.</sub>
 

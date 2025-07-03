@@ -13,9 +13,9 @@
     </div>
     <div class="mobile-container" v-if="MobileDevice">
         <MobileWindow v-model:show="showAbout" title="ABOUT" :img="About_Tako" :imgYOffset="'-45%'">
-                <About />
+            <About />
         </MobileWindow>
-        <MobileWindow v-model:show="showWorks" title="WORKS" :img="Works_Tako" :imgYOffset="'-45%'">
+        <MobileWindow v-model:show="showWorks" title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'">
             <Works />
         </MobileWindow>
         <MobileWindow v-model:show="showLinks" title="LINKS" :img="Links_Tako" :imgYOffset="'-45%'">
@@ -45,9 +45,9 @@
             <About />
         </Window>
         <Window v-model:show="showWorks"
-        title="WORKS" :img="Works_Tako" :imgYOffset="'-45%'"
+        title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'"
         :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
-        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
             <Works />
         </Window>
