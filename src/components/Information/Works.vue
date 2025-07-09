@@ -1,40 +1,8 @@
 <template>
     <div class="work-container">
         <div class="dev-skills-container">
-            <div class="intro-sub-title">DEVELOPMENT SKILLS</div>
-            <div class="intro-main-text" v-if="!MobileDevice">
-                <div class="column">
-                    <div class="dev-skill PL">Programming Languages</div>
-                    <div class="tag-row">
-                        <span class="tag">C</span>
-                        <span class="tag">C++</span>
-                        <span class="tag">C#</span>
-                        <span class="tag">Python</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">HTML/CSS</span>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="dev-skill TnT">Technologies & Tools</div>
-                    <div class="tag-row">
-                        <span class="tag">Git</span>
-                        <span class="tag">GitHub</span>
-                        <span class="tag">Unity</span>
-                        <span class="tag">Visual Studio Code</span>
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Vite</span>
-                    </div>
-                </div>
-                <div class="column">
-                    <div class="dev-skill Doms">Domains</div>
-                    <div class="tag-row">
-                        <span class="tag">Game Dev</span>
-                        <span class="tag">Web Dev</span>
-                        <span class="tag">Game Design</span>
-                    </div>
-                </div>
-            </div>
-            <div class="intro-main-text" v-else>
+            <div class="intro-sub-title DEVELOPMENT-SKILLS">DEVELOPMENT SKILLS</div>
+            <div class="intro-main-text">
                 <div class="column">
                     <div class="dev-skill PL">Programming Languages</div>
                     <div class="tag-row">
@@ -83,12 +51,8 @@
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="CAGEDRef" @pointerdown="showCAGED = !showCAGED; bringsubToFront('CAGED')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
-                    
                     <button class="play-btn itchio" @click="openCAGED">Play CAGED on Itch.io</button>
                     <div class="note">
                         Forever grateful to my incredible teammates, couldn't have done it without them!
@@ -106,11 +70,8 @@
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="NOTRANSRef" @pointerdown="showNOTRANS = !showNOTRANS; bringsubToFront('NOTRANS')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
                     
                     <button class="play-btn github" @click="openNOTRANS">View on GitHub</button>
                     <div class="note">
@@ -129,11 +90,8 @@
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="GEOguessrRef" @pointerdown="showGEOguessr = !showGEOguessr; bringsubToFront('GEOguessr')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
                     
                     <button class="play-btn github" @click="openGEOguessr">View on GitHub</button>
                     <div class="note">
@@ -152,12 +110,8 @@
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="One2PGRef" @pointerdown="showOne2PG = !showOne2PG; bringsubToFront('One2PG')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
-                    
                     <button class="play-btn github" @click="openOne2PG">View on GitHub</button>
                     <div class="note">
                         This was my first ever game project, and I'm thinking of making a new rendition :D
@@ -174,20 +128,16 @@
                         Solo Project - Vue + Tailwind(?) | Summer 2025
                     </strong>
                     <div>
-                        A passion project built to house my work, experiments, and the occasional strange ideas.
+                        A personal passion project built to house my work, experiments, and the occasional strange ideas.
                     </div>
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="ThisWebsiteRef" @pointerdown="showThisWebsite = !showThisWebsite; bringsubToFront('ThisWebsite')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
-                    
                     <button class="play-btn github" @click="opennottakoweb">View on GitHub</button>
                     <div class="note">
-                        "Just keep making stuff, Don't worry about it." — PirateSoftware (probably)
+                        Just keep making stuff, don't worry about it.
                     </div>
                 </div>
             </div>
@@ -206,65 +156,165 @@
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
-                        <span class="detail-info">i</span>
+                        <span ref="StillHumanRef" @pointerdown="showStillHuman = !showStillHuman; bringsubToFront('StillHuman')" class="detail-info">i</span>
                     </div>
-                    <!-- <SubWindow>
-
-                    </SubWindow> -->
-                    
                     <button class="play-btn youtube" @click="openstillhuman">Watch on Youtube</button>
                     <div class="note">
                         A personal story about mental health, brought to life by a friend.
                     </div>
                 </div>
             </div>
+            <div class="scroll-cover"></div>
         </div>
-        
-        <div class="scroll-cover"></div>
+        <div class="subwindow-container">
+            <SubWindow v-model:showsub="showCAGED"
+            title="CAGED"
+            :subzIndex="subzIndices.CAGED" :subinitialX="subinitialPositions.CAGED.x" :subinitialY="subinitialPositions.CAGED.y"
+            @pointerdown="bringsubToFront('CAGED')" @bringsubToFront="bringsubToFront('CAGED')">
+                <CAGED />
+            </SubWindow>
+            <SubWindow v-model:showsub="showNOTRANS"
+            title="No Translation!"
+            :subzIndex="subzIndices.NOTRANS" :subinitialX="subinitialPositions.NOTRANS.x" :subinitialY="subinitialPositions.NOTRANS.y"
+            @pointerdown="bringsubToFront('NOTRANS')" @bringsubToFront="bringsubToFront('NOTRANS')">
+                <NOTRANS />
+            </SubWindow>
+            <SubWindow v-model:showsub="showGEOguessr"
+            title="Geoguessr AI Bot"
+            :subzIndex="subzIndices.GEOguessr" :subinitialX="subinitialPositions.GEOguessr.x" :subinitialY="subinitialPositions.GEOguessr.y"
+            @pointerdown="bringsubToFront('GEOguessr')" @bringsubToFront="bringsubToFront('GEOguessr')">
+                <GEOguessr />
+            </SubWindow>
+            <SubWindow v-model:showsub="showOne2PG"
+            title="One2PlayerGame"
+            :subzIndex="subzIndices.One2PG" :subinitialX="subinitialPositions.One2PG.x" :subinitialY="subinitialPositions.One2PG.y"
+            @pointerdown="bringsubToFront('One2PG')" @bringsubToFront="bringsubToFront('One2PG')">
+                <One2PG />
+            </SubWindow>
+            <SubWindow v-model:showsub="showThisWebsite"
+            title="Not_Tako Web"
+            :subzIndex="subzIndices.ThisWebsite" :subinitialX="subinitialPositions.ThisWebsite.x" :subinitialY="subinitialPositions.ThisWebsite.y"
+            @pointerdown="bringsubToFront('ThisWebsite')" @bringsubToFront="bringsubToFront('ThisWebsite')">
+                <ThisWebsite />
+            </SubWindow>
+            <SubWindow v-model:showsub="showStillHuman"
+            title="Still Human"
+            :subzIndex="subzIndices.StillHuman" :subinitialX="subinitialPositions.StillHuman.x" :subinitialY="subinitialPositions.StillHuman.y"
+            @pointerdown="bringsubToFront('StillHuman')" @bringsubToFront="bringsubToFront('StillHuman')">
+                <StillHuman />
+            </SubWindow>
+        </div>
     </div>
 </template>
-
-
 <script setup>
-import { IsMobile } from '../../utils/isMobile';
 import SubWindow from '../../components/SubWindow.vue';
+import CAGED from '../../components/Information/Details/CAGED.vue';
+import NOTRANS from '../../components/Information/Details/NOTRANS.vue';
+import GEOguessr from '../../components/Information/Details/GEOguessr.vue';
+import One2PG from '../../components/Information/Details/One2PG.vue';
+import ThisWebsite from '../../components/Information/Details/ThisWebsite.vue';
+import StillHuman from '../../components/Information/Details/StillHuman.vue';
 
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
+const showCAGED = ref(false);
+const showNOTRANS = ref(false);
+const showGEOguessr = ref(false);
+const showOne2PG = ref(false);
+const showThisWebsite = ref(false);
+const showStillHuman = ref(false);
 
+const subzCounter = ref(3);
+const subzIndices = ref({
+    CAGED: 3,
+    NOTRANS: 3,
+    GEOguessr: 3,
+    One2PG: 3,
+    ThisWebsite: 3,
+    StillHuman: 3,
+});
+
+function bringsubToFront(name) {
+    subzCounter.value++;
+    subzIndices.value[name] = subzCounter.value;
+}
+
+const CAGEDRef = ref(null);
+const NOTRANSRef = ref(null);
+const GEOguessrRef = ref(null);
+const One2PGRef = ref(null);
+const ThisWebsiteRef = ref(null);
+const StillHumanRef = ref(null);
+
+const subinitialPositions = ref({
+    CAGED: { x: 0, y: 0 },
+    NOTRANS: { x: 0, y: 0 },
+    GEOguessr: { x: 0, y: 0 },
+    One2PG: { x: 0, y: 0 },
+    ThisWebsite: { x: 0, y: 0 },
+    StillHuman: { x: 0, y: 0 },
+});
 
 function openCAGED() {
-    window.open('https://fhvirus.itch.io/caged', '_blank');
+    window.open('https://fhvirus.itch.io/caged', '_blank', 'noopener, noreferrer');
 }
 
 function openNOTRANS() {
-    window.open('https://github.com/Saiko0324/LAL_Final_Spring25', '_blank');
+    window.open('https://github.com/Saiko0324/LAL_Final_Spring25', '_blank', 'noopener, noreferrer');
 }
 
 function openGEOguessr() {
-    window.open('https://github.com/Saiko0324/Geoguess', '_blank');
+    window.open('https://github.com/Saiko0324/Geoguess', '_blank', 'noopener, noreferrer');
 }
 
 function openOne2PG() {
-    window.open('https://github.com/Saiko0324/One2PlayerGame', '_blank');
+    window.open('https://github.com/Saiko0324/One2PlayerGame', '_blank', 'noopener, noreferrer');
 }
 
 function opennottakoweb() {
-    window.open('https://github.com/Saiko0324/nottakoweb', '_blank');
+    window.open('https://github.com/Saiko0324/nottakoweb', '_blank', 'noopener, noreferrer');
 }
 
 function openstillhuman() {
-    window.open('https://www.youtube.com/watch?v=th_tsET5CQU&list=LL', '_blank');
+    window.open('https://www.youtube.com/watch?v=th_tsET5CQU&list=LL', '_blank', 'noopener, noreferrer');
 }
 
-const MobileDevice = IsMobile();
+onMounted(() => {
+    const devSkills = document.querySelector('.dev-skills-container');
+    const introSub = document.querySelector('.intro-sub-container');
+    const workContainer = document.querySelector('.work-container');
+    
+    const updateScrollBehavior = () => {
+        const threshold = window.innerHeight * 0.4;
+        
+        if (devSkills.offsetHeight >= threshold) {
+            introSub.style.overflowY = 'hidden';
+            introSub.style.flex = 'none';
+            introSub.style.height = 'auto';
+            
+            workContainer.style.overflowY = 'auto';
+            
+        } else {
+            introSub.style.overflowY = 'auto';
+            introSub.style.flex = '1';
+            
+            workContainer.style.overflowY = 'hidden';
+        }
+    };
+    
+    updateScrollBehavior();
+    
+    new ResizeObserver(updateScrollBehavior).observe(devSkills);
+});
 
 </script>
 
-<style scoped>
+<style>
 .work-container {
     position: relative;
     height: 100%;
+    max-height: calc(var(--vh, 1vh) * 100);
+    overflow: hidden;
     display: flex;
     flex-direction: column;
     user-select: none;
@@ -277,6 +327,7 @@ const MobileDevice = IsMobile();
 .intro-main-text {
     font-size: 1.2rem;
     display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     min-height: 5rem;
     margin-top: 1.5rem;
@@ -326,6 +377,7 @@ const MobileDevice = IsMobile();
 }
 
 .intro-sub-container {
+    position: relative;
     flex: 1;
     overflow-y: auto;
     padding: 1rem 3rem 2rem 4rem;
@@ -465,20 +517,27 @@ const MobileDevice = IsMobile();
     right: 9.8rem;
 }
 
-.CAGED::before {
-    top: 1.4rem;
-}
+@media (max-width: 927px) {
+    .TnT::before {
+    right: 0;
+    }
 
-@media (min-width: 541px) and (max-width: 768px) {
+    .Doms::before {
+        right: 0;
+    }
+
     .dev-skills-container {
         padding: 1rem;
     }
-    
-    .intro-main-text {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: space-around;
-        gap: 0.5rem;
+
+    .DEVELOPMENT-SKILLS {
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .tag-row {
+        justify-content: center;
     }
     
     .column {
@@ -496,35 +555,23 @@ const MobileDevice = IsMobile();
     }
 }
 
-@media (max-width: 540px) {
-    
-    .column {
-        align-items: center;
-        white-space: nowrap;
-        padding-right: min(1rem, 10vw);
-    }
-    
-    .column + .column {
-        padding-left: min(2rem, 20vw);
-    }
-    
-    .intro-sub-container {
-        padding: 0 1rem 1rem 1rem;
-    }
-    
-    .intro-sub-title {
-        font-size: 1.4rem;
-    }
-    
-    .intro-sub-text {
-        font-size: 1rem;
-    }
-    
-    .note {
-        font-size: 0.7rem;
-    }
-    .scroll-cover {
-        height: 0;
-    }
+@media (max-width: 768px) {
+
 }
+
+.subwindow-container {
+    position: absolute;
+    width: calc(100% + 0.5rem);
+    height: calc(100% + 0.5rem);
+    left: -0.25rem;
+    top: -0.25rem;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.subwindow-container > * {
+    pointer-events: auto;
+}
+
 </style>

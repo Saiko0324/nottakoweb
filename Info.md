@@ -45,10 +45,10 @@ Game Design & Development, Web Development
 Team Project - Unity | 1-month dev cycle
 Short Description: It's a game with rhythm we made (not a rhythm game)! Play as a slime and dissolve toilet paper to save your kids!
 Details:
-Led a team of 6 to build a Unity game from the ground up. I mainly handled the design and implementation of core mechanics like player/enemy movement and attacks, and helped balance the game after playtesting. I also managed our timeline, coordinated the team’s tasks, and made an ad video to promote it.
+Led a team of 6 to build a Unity game from the ground up. I mainly handled the design and implementation of core mechanics like player/enemy movement and attacks, and helped balance the game after playtesting. I also managed our timeline, coordinated the team's tasks, and made an ad video to promote it.
 put a youtube video here?
 [Play CAGED on Itch.io](https://fhvirus.itch.io/caged)
-<sub>Forever grateful to my incredible teammates, couldn’t have done it without them!</sub>
+<sub>Forever grateful to my incredible teammates, couldn't have done it without them!</sub>
 
 #### No Translation!
 Team Project – Flask + Gemini API | 3-week dev cycle
@@ -80,7 +80,7 @@ Solo Project – Vue + Tailwind(?) | Summer 2025
 Short Description:A passion project built to house my work, experiments, and the occasional strange ideas.
 Details:
 Built the frontend from scratch with a focus on responsiveness and modular design. Visuals were designed by <font color="cyan">PJyun</font>, and I coded it all out by hand.
-It’s static for now, but I’m planning to hook it up with a backend in the future.
+It's static for now, but I'm planning to hook it up with a backend in the future.
 [View on GitHub](https://github.com/Saiko0324/nottakoweb)
 <sub>"Just keep making stuff, Don't worry about it." — PirateSoftware (probably)</sub>
 
@@ -146,11 +146,11 @@ Currently focusing on frontend development, design systems, and responsive UI wo
 [Download Web Resume (PDF)](directoy_path_to_web_pdf)
 
 ### <font color="orange">Game Development</font>
-I've always liked offbeat or unconventional gameplay, and pairing that with wanting to create games, I mainly focus on designing the core game mechanics, the interaction loops, and the balance that makes things just frustrating enough to be fun. I'd say coming up with surreal or weird systems and player experience had always been my forte, just don’t ask me to make your game look or sound good (I will cry). I work best when paired with other talented visual and audio people who can bring the rest of the world to life.
+I've always liked offbeat or unconventional gameplay, and pairing that with wanting to create games, I mainly focus on designing the core game mechanics, the interaction loops, and the balance that makes things just frustrating enough to be fun. I'd say coming up with surreal or weird systems and player experience had always been my forte, just don't ask me to make your game look or sound good (I will cry). I work best when paired with other talented visual and audio people who can bring the rest of the world to life.
 [Download Game Resume (PDF)](directoy_path_to_game_pdf)
 
 ### <font color="orange">Systems/Engineering</font>
-I (kind of) like systems programming, currently learning on Linux kernel internals, memory management, and virtualization (QEMU/KVM). I’m particularly interested in systems security — isolating processes, locking down memory, and breaking things just to put them back together safer. I’ve also worked on embedded platforms (BLE, RTOS, etc.); not my favorite domain, but I know my way around it when needed.
+I (kind of) like systems programming, currently learning on Linux kernel internals, memory management, and virtualization (QEMU/KVM). I'm particularly interested in systems security — isolating processes, locking down memory, and breaking things just to put them back together safer. I've also worked on embedded platforms (BLE, RTOS, etc.); not my favorite domain, but I know my way around it when needed.
 [Download Engineering Resume (PDF)](directoy_path_to_engineering_pdf)
 
 ### <font color="orange">Template</font>
@@ -158,10 +158,10 @@ My resumes are made from overleaf templates, but if you're lazy like me, and wan
 Just copy the entire thing into your own overleaf project and put in your own information, best of luck job seeking!
 
 ### <font color="orange">Other Interests</font>
-Some stuff I hadn't worked with or done professionally (yet), but like poking at anyway. Had my fair share of courses in AI/ML, web security, and encryption, mostly because ignoring them feels impossible. Software design’s on the list as well so I can fake knowing what’s going on. Probably don't have enough passion to start my own projects around any of these (but if it's a game though?), just drifting through ideas until something sticks or I lose interest.
+Some stuff I hadn't worked with or done professionally (yet), but like poking at anyway. Had my fair share of courses in AI/ML, web security, and encryption, mostly because ignoring them feels impossible. Software design's on the list as well so I can fake knowing what's going on. Probably don't have enough passion to start my own projects around any of these (but if it's a game though?), just drifting through ideas until something sticks or I lose interest.
 
 ## Contact
-Currently open to job offers or project work, assuming it doesn’t make me miserable.
+Currently open to job offers or project work, assuming it doesn't make me miserable.
 Feel free to contact me through mail at: dicksontio02@gmail.com
 
 Commisions almost always open for the website artist, so send her an Instagram DM [here](https://www.instagram.com/peng_jyun/).

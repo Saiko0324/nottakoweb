@@ -56,3 +56,4 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 7. for mobile compatibility, use `calc(var(--vh, 1vh) * n);` instead of `vh` (disregard nav bar)
 8. properly set up GitHub and Linkedin for viewing lmao
 9. make your goddamn resumes ==
+10. ask teammates how/would they prefer to be credited

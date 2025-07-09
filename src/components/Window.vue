@@ -1,5 +1,6 @@
 <template>
     <div class="dragwindow" v-if="show"
+    ref="dragwindow"
     :style="[windowSize, { transform: `translate(${position.x}px, ${position.y}px)`, zIndex }]">
         <div class="window-header" ref="dragwindowheader" @pointerdown.stop.prevent="StartDrag">
             <span class="window-title sub-title-bold">{{ title }} 
@@ -16,7 +17,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 
-const emit = defineEmits(['update:show', 'bringToFront']);
+const emit = defineEmits(['update:show']);
 
 const props = defineProps({
     title: { type: String, default: 'Window' },
@@ -26,8 +27,8 @@ const props = defineProps({
     zIndex: { type: Number, default: 1 },
     initialX: { type: Number, default: 100 },
     initialY: { type: Number, default: 100 },
-    x: { Number, default: -1},
-    y: { Number, default: -1},
+    // x: { Number, default: -1},
+    // y: { Number, default: -1},
     windowSize: { type: Object, default: () => ({}) },
 });
 
@@ -44,7 +45,8 @@ const getEventPosition = (event) => {
     }
 }
 
-const position = ref({ x: 0, y: 0 })
+const position = ref({ x: props.initialX, y: props.initialY })
+const dragwindow = ref(null);
 const dragwindowheader = ref(null);
 let isDragging = false;
 let dragOffset = { x: 0, y: 0 };
@@ -69,12 +71,14 @@ const Drag = (event) => {
     let newX = pos.x - dragOffset.x;
     let newY = pos.y - dragOffset.y;
 
-    const windowEl = dragwindowheader.value;
-    if (!windowEl) return;
+    const windowElHeight = dragwindowheader.value;
+    const windowElWidth = dragwindow.value;
+    if (!windowElHeight || !windowElWidth) return;
 
-    const windowRect = windowEl.getBoundingClientRect();
-    const maxX = window.innerWidth - windowRect.width;
-    const maxY = window.innerHeight - windowRect.height;
+    const windowRectHeight = windowElHeight.getBoundingClientRect();
+    const windowRectWidth = windowElWidth.getBoundingClientRect();
+    const maxX = window.innerWidth - windowRectWidth.width;
+    const maxY = window.innerHeight - windowRectHeight.height;
 
     newX = Math.min(Math.max(newX, 0), maxX);
     newY = Math.min(Math.max(newY, 0), maxY);
@@ -96,17 +100,17 @@ onUnmounted(() => {
     document.removeEventListener('pointerup', StopDrag);
 })
 
-let initialized = false;
+// let initialized = false;
 
-watch(
-() => [props.initialX, props.initialY, props.show],
-([newX, newY, isVisible]) => {
-    if (isVisible && !initialized) {
-        position.value = { x: newX, y: newY };
-        initialized = true;
-    }
-}, { immediate: true }
-);
+// watch(
+// () => [props.initialX, props.initialY, props.show],
+// ([newX, newY, isVisible]) => {
+//     if (isVisible && !initialized) {
+//         position.value = { x: newX, y: newY };
+//         initialized = true;
+//     }
+// }, { immediate: true }
+// );
 </script>
 
 <style scoped>
@@ -166,8 +170,8 @@ watch(
 .window-body {
     height: calc(100% - 3.1rem);
     background-color: white;
-    border-bottom-left-radius: 0.8rem;
-    border-bottom-right-radius: 0.8rem;
+    border-bottom-left-radius: 0.1rem;
+    border-bottom-right-radius: 0.1rem;
     overflow: hidden;
     box-sizing: border-box;
 }

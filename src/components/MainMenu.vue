@@ -97,7 +97,7 @@
 </template>
 
 <script setup>
-import { ref, reactive, onMounted, nextTick } from 'vue';
+import { ref, onMounted, nextTick } from 'vue';
 import { IsMobile } from '@/utils/IsMobile.js';
 import Window from '@/components/Window.vue';
 import MobileWindow from '@/components/MobileWindow.vue';
@@ -154,7 +154,7 @@ const contactRef = ref(null);
 const artRef = ref(null);
 // const controlsRef = ref(null);
 
-const initialPositions = reactive({
+const initialPositions = ref({
     About: { x: 0, y: 0 },
     Works: { x: 0, y: 0 },
     Links: { x: 0, y: 0 },
@@ -264,3 +264,4 @@ onMounted(async () => {
     pointer-events: auto;
 }
 </style>
+
