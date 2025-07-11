@@ -4,8 +4,8 @@
             <li ref="aboutRef" @pointerdown="showAbout = !showAbout; bringToFront('About')">About</li>
             <li ref="worksRef" @pointerdown="showWorks = !showWorks; bringToFront('Works')">Works</li>
             <li ref="linksRef" @pointerdown="showLinks = !showLinks; bringToFront('Links')">Links</li>
-            <li ref="othersRef" @pointerdown="showOthers = !showOthers; bringToFront('Others')">Others</li>
-            <li ref="resumeRef" @pointerdown="showResume = !showResume; bringToFront('Resume')">Resume</li>
+            <!-- <li ref="othersRef" @pointerdown="showOthers = !showOthers; bringToFront('Others')">Others</li> -->
+            <!-- <li ref="resumeRef" @pointerdown="showResume = !showResume; bringToFront('Resume')">Resume</li> -->
             <li ref="contactRef" @pointerdown="showContact = !showContact; bringToFront('Contact')">Contact</li>
             <li ref="artRef" @pointerdown="showArt = !showArt; bringToFront('Art')">Art</li>
             <!-- <li ref="controlsRef" @pointerdown="showControls = !showControls; bringToFront('Controls')">Controls</li> -->
@@ -19,19 +19,19 @@
             <Works />
         </MobileWindow>
         <MobileWindow v-model:show="showLinks" title="LINKS" :img="Links_Tako" :imgYOffset="'-45%'">
-            <p class="content">Work in Progress...</p>
+            <Links />
         </MobileWindow>
-        <MobileWindow v-model:show="showOthers" title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'">
-            <p class="content">Work in Progress...</p>
+        <!-- <MobileWindow v-model:show="showOthers" title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'">
+            <Others />
         </MobileWindow>
         <MobileWindow v-model:show="showResume" title="RESUME" :img="Resume_Tako" :imgYOffset="'-45%'">
-            <p class="content">Work in Progress...</p>
-        </MobileWindow>
+            <Resume />
+        </MobileWindow> -->
         <MobileWindow v-model:show="showContact" title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'">
-            <p class="content">Work in Progress...</p>
+            <Contact />
         </MobileWindow>
         <MobileWindow v-model:show="showArt" title="ART" :img="Art_Tako" :imgYOffset="'-45%'">
-            <p class="content">Work in Progress...</p>
+            <Art />
         </MobileWindow>
         <!-- <MobileWindow v-model:show="showControls" title="Controls">
             <p class="content">Controls</p>
@@ -45,20 +45,20 @@
             <About />
         </Window>
         <Window v-model:show="showWorks"
-        title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'"
+        title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'" 
         :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
         :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
             <Works />
         </Window>
         <Window v-model:show="showLinks"
-        title="LINKS" :img="Links_Tako" :imgYOffset="'-45%'"
+        title="LINKS" :img="Links_Tako" :imgYOffset="'-40%'"
         :zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
-        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(23rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
             <Links />
         </Window>
-        <Window v-model:show="showOthers"
+        <!-- <Window v-model:show="showOthers"
         title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'"
         :zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
         :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
@@ -66,23 +66,23 @@
             <Others />
         </Window>
         <Window v-model:show="showResume"
-        title="RESUME" :img="Resume_Tako" :imgYOffset="'-45%'"
+        title="RESUME" :img="Resume_Tako" :imgYOffset="'-50%'"
         :zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
         :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
             <Resume />
-        </Window>
+        </Window> -->
         <Window v-model:show="showContact"
         title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'"
         :zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
-        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(28rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
             <Contact />
         </Window>
         <Window v-model:show="showArt"
-        title="ART" :img="Art_Tako" :imgYOffset="'-45%'"
+        title="ART" :img="Art_Tako" :imgYOffset="'-55%'"
         :zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
-        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(40rem, calc(var(--vh, 1vh) * 90))' }"
         @pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
             <Art />
         </Window>
