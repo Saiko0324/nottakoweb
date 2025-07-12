@@ -9,7 +9,7 @@
         class="contact-image"
         @click="playRandomWAH"/>
         <div class="contact-info">
-            <div>
+            <div class="email-info">
                 Email me at
                 <button
                 class="email-copy-button emphasis"
@@ -197,6 +197,12 @@ const playRandomWAH = () => {
         font-size: 1.1rem;
     }
     
+    .email-info {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
     .email-button {
         width: 100%;
         text-align: center;

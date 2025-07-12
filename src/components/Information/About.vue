@@ -196,7 +196,6 @@ const to_normal_icon = () => currentIcon.value = Icon
 .intro-main-text {
     font-size: 1.2rem;
     display: flex;
-    gap: 1rem;
     min-height: 5rem;
 }
 
@@ -277,6 +276,7 @@ const to_normal_icon = () => currentIcon.value = Icon
         gap: 1rem;
         padding: 2.5rem;
         justify-content: space-between;
+        padding-bottom: 0;
     }
 
     .intro-main {
@@ -296,9 +296,7 @@ const to_normal_icon = () => currentIcon.value = Icon
     
     .intro-main-text {
         flex-direction: row;
-        flex-wrap: wrap;
         justify-content: space-around;
-        gap: 0.5rem;
     }
     
     .column {
@@ -322,12 +320,12 @@ const to_normal_icon = () => currentIcon.value = Icon
         align-items: center;
         padding: 1rem;
         gap: 1rem;
+        padding-bottom: 0;
     }
     
     .intro-main {
         font-size: min(10vw, 2.5rem);
         justify-content: center;
-        gap: 1.5rem;
         padding-left: 1rem;
         border-left: 0.2rem solid #ffdc17;
         border-right: 0.2rem solid #ffdc17;
@@ -341,20 +339,25 @@ const to_normal_icon = () => currentIcon.value = Icon
         width: 120px;
         height: 120px;
     }
-    
+
+    .roles-container {
+        padding: 1rem;
+    }
+
     .intro-main-text {
         justify-content: center;
+        flex-wrap: nowrap;
         font-size: 1rem;
     }
     
     .column {
         align-items: center;
         white-space: nowrap;
-        padding-right: min(1rem, 10vw);
+        padding-right: min(1rem, 5vw);
     }
     
     .column + .column {
-        padding-left: min(2rem, 20vw);
+        padding-left: min(2rem, 10vw);
     }
 
     .intro-sub-container {

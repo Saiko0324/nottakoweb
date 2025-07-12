@@ -4,30 +4,30 @@
         :src="Background"
         alt="Background"
         class="art-background"/>
-        <div class="artist-name">
-            <div class="sub-title emphasis">
-                Peng Jyun
-            </div>
-        </div>
-        <div class="intro-main-container">
-            <div>Motion Designer</div>
-            <div>Illustrator</div>
-        </div>
+        <img
+        :src="Info"
+        alt="Info"
+        class="info"/>
         <div class="links-container">
-            <a href="https://www.instagram.com/peng_jyun/" target="_blank" rel="noopener noreferrer">
-                <img :src="Instagram" alt="instagram" class="logo" />
-            </a>
-            <a href="https://ping912194.myportfolio.com/?fbclid=PAZXh0bgNhZW0CMTEAAae5ULR2i9kVklCFz1IJwmjeo727JgkIaPcYbo70le3PrRMyt2OEDrCMk2hZvw_aem_L-7iG5AayVHFmV494MeMVA" target="_blank" rel="noopener noreferrer">
-                <img :src="Portfolio" alt="portfolio" class="logo" />
-            </a>
+            <div class="logo-wrapper">
+                <a href="https://www.instagram.com/peng_jyun/" target="_blank" rel="noopener noreferrer">
+                    <img :src="Instagram" alt="instagram" class="logo instagram" />
+                </a>
+            </div>
+            <div class="logo-wrapper">
+                <a href="https://ping912194.myportfolio.com/?fbclid=PAZXh0bgNhZW0CMTEAAae5ULR2i9kVklCFz1IJwmjeo727JgkIaPcYbo70le3PrRMyt2OEDrCMk2hZvw_aem_L-7iG5AayVHFmV494MeMVA" target="_blank" rel="noopener noreferrer">
+                    <img :src="Portfolio" alt="portfolio" class="logo portfolio" />
+                </a>
+            </div>
         </div>
     </div>
 </template>
 
 <script setup>
-import Background from '@/assets/img/Information/Art/background.webp'
-import Instagram from '@/assets/img/Information/Art/instagram.webp'
-import Portfolio from '@/assets/img/Information/Art/portfolio.webp'
+import Background from '@/assets/img/Information/Art/background2.webp'
+import Info from '@/assets/img/Information/Art/text.webp'
+import Instagram from '@/assets/img/Information/Art/instagram2.webp'
+import Portfolio from '@/assets/img/Information/Art/portfolio2.webp'
 </script>
 
 <style scoped>
@@ -35,84 +35,76 @@ import Portfolio from '@/assets/img/Information/Art/portfolio.webp'
     position: relative;
     width: 100%;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     user-select: none;
 }
 
 .art-background {
     position: absolute;
     top: 0.2rem;
-    left: 0;
     width: 100%;
     height: 100%;
+    object-position: center 0%;
     object-fit: cover;
-    pointer-events: none;
-    opacity: 0.6;
-}
-
-.artist-name {
-    position: absolute;
-    font-size: 3rem;
-    top: 25%;
-    letter-spacing: 0.05rem;
-}
-
-.emphasis {
-    position: relative;
-    padding: 0 0.3rem;
     z-index: 0;
+    pointer-events: none;
 }
 
-.emphasis::before {
-    content: '';
+.info {
     position: absolute;
-    left: 0;
-    bottom: 1.1rem;
-    width: 100%;
-    height: 0.7rem;
-    background: #ffdc17;
-    opacity: 0.8;
-    z-index: -1;
-}
-
-.intro-main-container {
-    position: absolute;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    top: 50%;
-    transform: translateY(-50%);
-    gap: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.intro-main-container div:hover {
-    padding: 0 0.5rem;
-    background: white;
+    width: 20rem;
+    height: auto;
+    top: 35%;
+    left: 51%;
+    transform: translate(-50%, -50%);
 }
 
 .links-container {
     position: absolute;
-    display: flex;
     width: 100%;
-    top: 63%;
-    flex-direction: row;
-    justify-content: center;
-    gap: 4rem;
+    top: 49%;
+    left: 55%;
+    display: flex;
+    flex-direction: column;
 }
 
+/* .logo-wrapper {
+    position: relative;
+    display: inline-block;
+    z-index: 1;
+}
+
+.logo-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    width: 14.5%;
+    height: 45%;
+    background-color: #00ffff;
+    filter: brightness(50) saturate(200);
+    transition: transform 0.2s ease;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0;
+}
+
+.logo-wrapper:hover::after {
+    opacity: 1;
+} */
+
 .logo {
-    height: 5rem;
+    position: relative;
+    height: 3rem;
     width: auto;
     object-fit: contain;
     transition: transform 0.2s ease;
     cursor: pointer;
+    z-index: 2;
 }
 
 .logo:hover {
     transform: scale(1.1);
+    /* filter: brightness(0); */
 }
 
 @media (max-width: 768px) {
