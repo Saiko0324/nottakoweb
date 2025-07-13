@@ -57,3 +57,4 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 8. properly set up GitHub and Linkedin for viewing lmao
 9. make your goddamn resumes ==
 10. ask teammates how/would they prefer to be credited
+11. free sound effects at https://www.zapsplat.com/

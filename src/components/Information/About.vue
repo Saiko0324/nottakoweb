@@ -259,6 +259,7 @@ const to_normal_icon = () => currentIcon.value = Icon
 .note {
     font-size: 0.8rem;
     margin-top: 0.5rem;
+    padding: 0 0.5rem;
 }
 
 .scroll-cover {

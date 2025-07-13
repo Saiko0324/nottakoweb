@@ -72,7 +72,6 @@
                         <span class="arrow">▶</span>
                         <span ref="NOTRANSRef" @pointerdown="showNOTRANS = !showNOTRANS; bringsubToFront('NOTRANS')" class="detail-info">i</span>
                     </div>
-                    
                     <button class="play-btn github" @click="openNOTRANS">View on GitHub</button>
                     <div class="note">
                         Huge thanks to my team, I had fun building this one!
@@ -142,7 +141,7 @@
                 </div>
             </div>
 
-            <div class="intro-sub-section">
+            <div class="intro-sub-section-final">
                 <div class="intro-sub-title" style="letter-spacing: 0.15rem;">BONUS: WRITING</div>
                 <div class="intro-sub-text">
                     <div class="project-name StillHuman">Still Human</div>
@@ -164,7 +163,6 @@
                     </div>
                 </div>
             </div>
-            <div class="scroll-cover"></div>
         </div>
         <div class="subwindow-container">
             <SubWindow v-model:showsub="showCAGED"
@@ -204,6 +202,7 @@
                 <StillHuman />
             </SubWindow>
         </div>
+        <div class="scroll-cover"></div>
     </div>
 </template>
 <script setup>
@@ -469,7 +468,7 @@ onMounted(() => {
     font-size: 0.8rem;
     margin-top: 0.5rem;
     border: 0.1rem solid #958dfa;
-    padding: 0.2rem;
+    padding: 0 0.5rem;
     border-radius: 0.3rem;
     color: #958dfa;
 }
@@ -479,7 +478,6 @@ onMounted(() => {
     color: black;
     transition: ease-in-out 0.2s;
 }
-
 
 .scroll-cover {
     position: absolute;
