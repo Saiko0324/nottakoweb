@@ -100,17 +100,17 @@ onUnmounted(() => {
     document.removeEventListener('pointerup', StopDrag);
 })
 
-// let initialized = false;
+let initialized = false;
 
-// watch(
-// () => [props.initialX, props.initialY, props.show],
-// ([newX, newY, isVisible]) => {
-//     if (isVisible && !initialized) {
-//         position.value = { x: newX, y: newY };
-//         initialized = true;
-//     }
-// }, { immediate: true }
-// );
+watch(
+() => [props.initialX, props.initialY, props.show],
+([newX, newY, isVisible]) => {
+    if (isVisible && !initialized) {
+        position.value = { x: newX, y: newY };
+        initialized = true;
+    }
+}, { immediate: true }
+);
 </script>
 
 <style scoped>

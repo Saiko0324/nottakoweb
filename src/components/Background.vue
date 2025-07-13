@@ -1,5 +1,5 @@
 <template>
-    <div class="background-container">
+    <div class="background-container" :style="{ top: ContainerTop, height: ContainerHeight }">
         <Floaty
         v-for="(image, index) in images"
         :key="index"
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted,  onUnmounted } from 'vue'
 import Floaty from '@/components/Floaty.vue'
 import { IsMobile } from '@/utils/IsMobile.js'
 
@@ -54,15 +54,30 @@ const randomVelocities = images.value.map(() => ({
     y: getVelocity(),
 }))
 
+const ContainerTop = ref('');
+const ContainerHeight = ref('');
+const MobileDevice = IsMobile();
+function updateContainerSize() {
+    ContainerTop.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 10)' : 'calc(var(--vh, 1vh) * 16)';
+    ContainerHeight.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 90)' : 'calc(var(--vh, 1vh) * 84)';
+}
+
+onMounted(() => {
+    updateContainerSize();
+    window.addEventListener('resize', updateContainerSize);
+});
+
+onUnmounted(() => {
+    window.removeEventListener('resize', updateContainerSize);
+});
+
 </script>
 
 <style scoped>
 .background-container {
     position: fixed;
     width: 100%;
-    top: calc(var(--vh, 1vh) * 10);
     left: 0;
-    height: calc(var(--vh, 1vh) * 90);
     overflow: hidden;
     pointer-events: none;
     z-index: 0;

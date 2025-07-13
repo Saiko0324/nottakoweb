@@ -12,6 +12,10 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { IsMobile } from '@/utils/IsMobile.js'
+
+const MobileDevice = IsMobile();
+const ContainerHeightRatio = MobileDevice.value? 0.9 : 0.84;
 
 const props = defineProps({
     initialX: { type: Number, default: 0 },
@@ -59,7 +63,7 @@ const update = () => {
     let newY = position.value.y + velocity.value.y
     
     const maxX = viewportWidth - boxRect.width
-    const maxY = viewportHeight * 0.9 - boxRect.height
+    const maxY = (viewportHeight * ContainerHeightRatio) - boxRect.height
     
     if (newX <= 0 || newX >= maxX) {
         velocity.value.x *= -1
@@ -100,7 +104,7 @@ const Drag = (event) => {
     
     const boxRect = boxEl.getBoundingClientRect()
     const maxX = window.innerWidth - boxRect.width
-    const maxY = window.innerHeight * 0.9 - boxRect.height
+    const maxY = (window.innerHeight * ContainerHeightRatio) - boxRect.height
     
     newX = Math.min(Math.max(newX, 0), maxX)
     newY = Math.min(Math.max(newY, 0), maxY)

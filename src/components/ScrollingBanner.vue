@@ -1,6 +1,6 @@
 <template>
-    <div class="hidden-scroll-banner-message title"> WAH </div>
-    <div class="scroll-banner">
+    <!-- <div class="hidden-scroll-banner-message title"> WAH </div> -->
+    <div class="scroll-banner" :style="{ height: bannerHeight }">
         <div
         v-for="item in activeImages"
         :key="item.id"
@@ -22,21 +22,23 @@
 
 
 <script setup>
-import {
-    ref,
-    onMounted,
-    onUnmounted
-} from 'vue';
+import { ref, onMounted, onUnmounted } from 'vue';
+import { IsMobile } from '@/utils/IsMobile.js';
 // import SpriteAnimator from '@/components/SpriteAnimator.vue';
-
-import img1 from '@/assets/img/ScrollingBanner/takodachi-spin-compressed-100.webp';
+import tako from '@/assets/img/ScrollingBanner/tako-spin-lineart.webp'
+// import img1 from '@/assets/img/ScrollingBanner/takodachi-spin-compressed-100.webp';
 // import img2 from '@/assets/img/ScrollingBanner/takodachi-spin.webp'
 
 const images = [{
     type: 'webp',
-    src: img1,
+    src: tako,
     heightoffset: 0.8,
 },
+// {
+//     type: 'webp',
+//     src: img1,
+//     heightoffset: 0.8,
+// },
 // {
 // 	type: 'sprite',
 // 	src: img2,
@@ -83,7 +85,8 @@ function spawnImage() {
         ...img
     });
     
-    const delay = 1000 + Math.random() * 3000;
+    // const delay = 1000 + Math.random() * 3000;
+    const delay = 2500;
     timerId = setTimeout(spawnImage, delay);
 }
 
@@ -91,15 +94,25 @@ function removeImage(id) {
     activeImages.value = activeImages.value.filter(img => img.id !== id);
 }
 
+const bannerHeight = ref('');
+const MobileDevice = IsMobile();
+function updateBannerHeight() {
+    bannerHeight.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 10)' : 'calc(var(--vh, 1vh) * 15)';
+}
+
 onMounted(() => {
+    updateBannerHeight();
+    window.addEventListener('resize', updateBannerHeight);
     setTimeout(() => {
         spawnImage();
-    }, 2500);
+    }, 2000);
 });
 
 onUnmounted(() => {
+    window.removeEventListener('resize', updateBannerHeight);
     clearTimeout(timerId);
 });
+
 </script>
 
 <style scoped>
@@ -110,9 +123,10 @@ onUnmounted(() => {
     right: 0;
     height: calc(var(--vh, 1vh) * 10);
     overflow: visible;
+    background-color: #ffe13a;
     pointer-events: none;
-    background-color: hwb(246 71% 0%);
     user-select: none;
+    /* background-color: hwb(246 71% 0%); */
     /* background-color: hwb(263 76% 0%); */
     /* display: none; */
 }
