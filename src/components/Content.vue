@@ -10,7 +10,7 @@
                     points="0,0 160,0 200,100 0,100"
                     :fill="getFillColor(0)"/>
                     <text x="80" y="50" text-anchor="middle" dominant-baseline="middle"
-                    class="label title">
+                    class="label sub-title">
                     HOME
                     </text>
                 </svg>
@@ -23,7 +23,7 @@
                     points="40,0 160,0 200,100 0,100"
                     :fill="getFillColor(1)"/>
                     <text x="100" y="50" text-anchor="middle" dominant-baseline="middle"
-                    class="label title">
+                    class="label sub-title">
                     MENU
                     </text>
                 </svg>
@@ -36,7 +36,7 @@
                     points="40,0 160,0 200,100 0,100"
                     :fill="getFillColor(2)"/>
                     <text x="100" y="50" text-anchor="middle" dominant-baseline="middle"
-                    class="label title">
+                    class="label sub-title">
                     SETTING
                     </text>
                 </svg>
@@ -124,7 +124,8 @@ const getZIndex = (index) => {
 
 .label {
     fill: black;
-    font-size: 2rem;
+    font-size: 2.2rem;
+    font-weight: bold;
     pointer-events: none;
     transition: transform 0.15s ease, fill 0.15s ease, text-shadow 0.15s ease;
     transform-origin: center;

@@ -72,7 +72,10 @@
                         <span class="arrow">▶</span>
                         <span ref="NOTRANSRef" @pointerdown="showNOTRANS = !showNOTRANS; bringsubToFront('NOTRANS')" class="detail-info">i</span>
                     </div>
-                    <button class="play-btn github" @click="openNOTRANS">View on GitHub</button>
+                    <div class="button-group">
+                        <button class="play-btn notrans" @click="openNOTRANSweb">Play No Traslation</button>
+                        <button class="play-btn github" @click="openNOTRANSgithub">View on GitHub</button>
+                    </div>
                     <div class="note">
                         Huge thanks to my team, I had fun building this one!
                     </div>
@@ -84,17 +87,21 @@
                         Team Project - Vue + Firebase + Gemini API | 3-week dev cycle
                     </strong>
                     <div>
-                        We like to play Geoguessr, and some people have no friends, so we integrated AI players to play with us.
+                        We like to play Geoguessr, and some people have no friends, so we integrated AI players to play multiplayer with us.
                     </div>
                     <div class="details">
                         <span>Details</span>
                         <span class="arrow">▶</span>
                         <span ref="GEOguessrRef" @pointerdown="showGEOguessr = !showGEOguessr; bringsubToFront('GEOguessr')" class="detail-info">i</span>
                     </div>
-                    
-                    <button class="play-btn github" @click="openGEOguessr">View on GitHub</button>
+                    <div class="button-group">
+                        <button class="play-btn geoguessr" @click="openGEOguessrweb">Play Geoguessr</button>
+                        <button class="play-btn github" @click="openGEOguessrgithub">View on GitHub</button>
+                    </div>
                     <div class="note">
-                        This was more tiring than I expected ngl :')
+                        This was more tiring than I expected ngl:')
+                        <br/>
+                        also please don't play too much, the firebase and Gemini APIs cost money (I'm poor)
                     </div>
                 </div>
                 <div class="intro-sub-text">
@@ -258,11 +265,19 @@ function openCAGED() {
     window.open('https://fhvirus.itch.io/caged', '_blank', 'noopener, noreferrer');
 }
 
-function openNOTRANS() {
+function openNOTRANSweb() {
+    window.open('https://nottako-no-translation.onrender.com/select_language', '_blank', 'noopener, noreferrer');
+}
+
+function openNOTRANSgithub() {
     window.open('https://github.com/Saiko0324/LAL_Final_Spring25', '_blank', 'noopener, noreferrer');
 }
 
-function openGEOguessr() {
+function openGEOguessrweb() {
+    window.open('https://nottako-geoguessr.netlify.app/', '_blank', 'noopener, noreferrer');
+}
+
+function openGEOguessrgithub() {
     window.open('https://github.com/Saiko0324/Geoguess', '_blank', 'noopener, noreferrer');
 }
 
@@ -440,6 +455,11 @@ onMounted(() => {
     cursor: pointer;
 }
 
+.button-group {
+    display: flex;
+    gap: 1rem;
+}
+
 .play-btn {
     display: block;
     background-color: #7e7e7e;
@@ -453,6 +473,22 @@ onMounted(() => {
 
 .itchio {
     background-color: #fa5c5c;
+}
+
+.notrans {
+    background-color: #73a0df;
+}
+
+.notrans:hover {
+    background-color: #191970;
+}
+
+.geoguessr {
+    background-color: #72c599;
+}
+
+.geoguessr:hover {
+    background-color: #47906a;
 }
 
 .youtube {

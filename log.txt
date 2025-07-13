@@ -1,3 +1,11 @@
+14/07/2025
+I deployed two games (Geoguessr & No Translation) on accessible websites to better introduce my work.
+There's so much to do I honestly don't know what should be my next step.
+
+13/07/2025
+I finisheed the complete design style revamp, had an idea of putting all the controllables in a settings navigation.
+For easier compatibility, mobile usage design remains the same, and certain functionalities will be omitted for my sanity.
+
 12/07/2025
 Revamped the Art design and fixed some RWD issues I found.
 

@@ -21,12 +21,12 @@
         <MobileWindow v-model:show="showLinks" title="LINKS" :img="Links_Tako" :imgYOffset="'-45%'">
             <Links />
         </MobileWindow>
-        <!-- <MobileWindow v-model:show="showOthers" title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'">
+        <MobileWindow v-model:show="showOthers" title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'">
             <Others />
         </MobileWindow>
         <MobileWindow v-model:show="showResume" title="RESUME" :img="Resume_Tako" :imgYOffset="'-45%'">
             <Resume />
-        </MobileWindow> -->
+        </MobileWindow>
         <MobileWindow v-model:show="showContact" title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'">
             <Contact />
         </MobileWindow>
@@ -42,50 +42,50 @@
         title="ABOUT" :img="About_Tako" :imgYOffset="'-45%'"
         :zIndex="zIndices.About" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y"
         @pointerdown="bringToFront('About')" @bringToFront="bringToFront('About')">
-        <About />
-    </Window>
-    <Window v-model:show="showWorks"
-    title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'" 
-    :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
-    :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
-    @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
-    <Works />
-</Window>
-<Window v-model:show="showLinks"
-title="LINKS" :img="Links_Tako" :imgYOffset="'-40%'"
-:zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
-:windowSize="{ width: 'min(38rem, 100vw)', height: 'min(23rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
-<Links />
-</Window>
-<!-- <Window v-model:show="showOthers"
-title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'"
-:zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Others')" @bringToFront="bringToFront('Others')">
-<Others />
-</Window>
-<Window v-model:show="showResume"
-title="RESUME" :img="Resume_Tako" :imgYOffset="'-50%'"
-:zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
-<Resume />
-</Window> -->
-<Window v-model:show="showContact"
-title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'"
-:zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
-:windowSize="{ width: 'min(38rem, 100vw)', height: 'min(28rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
-<Contact />
-</Window>
-<Window v-model:show="showArt"
-title="ART" :img="Art_Tako" :imgYOffset="'-55%'"
-:zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(40rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
-<Art />
-</Window>
+            <About />
+        </Window>
+        <Window v-model:show="showWorks"
+            title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'" 
+            :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
+            :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
+            @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
+            <Works />
+        </Window>
+        <Window v-model:show="showLinks"
+        title="LINKS" :img="Links_Tako" :imgYOffset="'-40%'"
+        :zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(23rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
+            <Links />
+        </Window>
+        <Window v-model:show="showOthers"
+        title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'"
+        :zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Others')" @bringToFront="bringToFront('Others')">
+        <Others />
+        </Window>
+        <Window v-model:show="showResume"
+        title="RESUME" :img="Resume_Tako" :imgYOffset="'-50%'"
+        :zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
+        <Resume />
+        </Window>
+        <Window v-model:show="showContact"
+        title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'"
+        :zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(28rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
+            <Contact />
+        </Window>
+        <Window v-model:show="showArt"
+        title="ART" :img="Art_Tako" :imgYOffset="'-55%'"
+        :zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(40rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
+            <Art />
+        </Window>
 <!-- <Window v-model:show="showControls"
 title="Controls"
 :zIndex="zIndices.Controls" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y"
@@ -158,8 +158,8 @@ const initialPositions = ref({
     About: { x: 300, y: 0 },
     Works: { x: 300, y: 0 },
     Links: { x: 300, y: 0 },
-    //   Others: { x: 550, y: 160 },
-    //   Resume: { x: 650, y: 160 },
+    Others: { x: 550, y: 160 },
+    Resume: { x: 650, y: 160 },
     Contact: { x: 300, y: 0 },
     Art: { x: 300, y: 0 },
     // Controls: { x: 0, y: 0 },
@@ -187,7 +187,6 @@ function updatePositions() {
 }
 
 onMounted(() => {
-
     updatePositions();
     window.addEventListener('resize', updatePositions);
 });

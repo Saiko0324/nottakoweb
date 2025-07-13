@@ -26,10 +26,18 @@ const props = defineProps({
     img1Count: { type: Number, default: 1 },
     img2Count: { type: Number, default: 1 },
     img3Count: { type: Number, default: 1 },
-})
+})    
+
+const ContainerTop = ref('');
+const ContainerHeight = ref('');
+const MobileDevice = IsMobile();
+function updateContainerSize() {
+    ContainerTop.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 10)' : 'calc(var(--vh, 1vh) * 16)';
+    ContainerHeight.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 90)' : 'calc(var(--vh, 1vh) * 84)';
+}
 
 const images = ref([
-...Array(props.img1Count).fill(img1),
+...Array(props.img1Count).fill(img1),    
 ...Array(props.img2Count).fill(img2),
 ...Array(props.img3Count).fill(img3),
 ])
@@ -39,28 +47,19 @@ const getRandom = (min, max) => Math.random() * (max - min) + min
 const getVelocity = () => {
     if (IsMobile()) {
         return (Math.random() < 0.5)? getRandom(-1, -0.1) || 1 : getRandom(0.1, 1)
-    }
+    }    
     else return (Math.random() < 0.5)? getRandom(-2.5, -0.1) || 1 : getRandom(0.1, 2.5)
-}
-
+}    
 
 const randomPositions = images.value.map(() => ({
     x: getRandom(0, window.innerWidth),
-    y: getRandom(0, window.innerHeight * 0.9),
+    y: getRandom(0, window.innerHeight),
 }))
 
 const randomVelocities = images.value.map(() => ({
     x: getVelocity(),
     y: getVelocity(),
 }))
-
-const ContainerTop = ref('');
-const ContainerHeight = ref('');
-const MobileDevice = IsMobile();
-function updateContainerSize() {
-    ContainerTop.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 10)' : 'calc(var(--vh, 1vh) * 16)';
-    ContainerHeight.value = MobileDevice.value? 'calc(var(--vh, 1vh) * 90)' : 'calc(var(--vh, 1vh) * 84)';
-}
 
 onMounted(() => {
     updateContainerSize();
