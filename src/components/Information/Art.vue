@@ -108,5 +108,9 @@ import Portfolio from '@/assets/img/Information/Art/portfolio2.webp'
 }
 
 @media (max-width: 768px) {
+    .art-background {
+        top: 0;
+    }
+
 }
 </style>

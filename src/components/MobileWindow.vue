@@ -34,7 +34,7 @@ const props = defineProps({
     position: absolute;
     left: 0;
     width: 100vw;
-    height: calc(var(--vh, 1vh) * 100);
+    height: calc(var(--vh, 1vh) * 90);
 }
 
 .mobile-window-header {
@@ -61,7 +61,6 @@ const props = defineProps({
     height: 100%;
     width: auto;
 }
-
 
 .close-button {
     position: absolute;
