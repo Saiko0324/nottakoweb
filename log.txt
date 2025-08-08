@@ -1,3 +1,8 @@
+08/08/2025
+Fixed an issue where the sub window gets stuck/cut off on mobile view, and added preloading for all currently using fonts.
+As you can see, this project is on a hiatus now, somewhat because I got a job, but mostly because I'm lazy and satisfied (for now).
+I'm playing games, reading books and enjoying life. Good to know.
+
 14/07/2025
 I deployed two games (Geoguessr & No Translation) on accessible websites to better introduce my work.
 There's so much to do I honestly don't know what should be my next step.
