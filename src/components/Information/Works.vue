@@ -99,9 +99,9 @@
                         <button class="play-btn github" @click="openGEOguessrgithub">View on GitHub</button>
                     </div>
                     <div class="note">
-                        This was more tiring than I expected ngl:')
+                        This was more tiring than I expected ngl :')
                         <br/>
-                        also please don't play too much, the firebase and Gemini APIs cost money (I'm poor)
+                        also please don't play too much, the Firebase and Gemini APIs cost money (I'm poor)
                     </div>
                 </div>
                 <div class="intro-sub-text">
@@ -332,6 +332,21 @@ onMounted(() => {
     display: flex;
     flex-direction: column;
     user-select: none;
+}
+
+.subwindow-container {
+    position: absolute;
+    width: calc(100% + 0.5rem);
+    height: calc(100% + 0.5rem);
+    left: -0.25rem;
+    top: -0.25rem;
+    overflow: hidden;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.subwindow-container > * {
+    pointer-events: auto;
 }
 
 .dev-skills-container {
@@ -574,10 +589,19 @@ onMounted(() => {
         justify-content: center;
     }
     
+    .intro-main-text {    
+        gap: 2rem;
+    }
+
     .column {
         align-items: center;
         white-space: nowrap;
-        padding-right: 1rem;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .column + .column {
+        padding-left: 0;
     }
     
     .intro-sub-container {
@@ -590,22 +614,17 @@ onMounted(() => {
 }
 
 @media (max-width: 768px) {
-
-}
-
-.subwindow-container {
-    position: absolute;
-    width: calc(100% + 0.5rem);
-    height: calc(100% + 0.5rem);
-    left: -0.25rem;
-    top: -0.25rem;
-    overflow: hidden;
-    z-index: 10;
-    pointer-events: none;
-}
-
-.subwindow-container > * {
-    pointer-events: auto;
+    
+    .subwindow-container {
+        position: fixed;
+        width: calc(100% + 0.5rem);
+        height: calc(100% + 0.5rem - calc(var(--vh, 1vh) * 16));
+        left: -0.25rem;
+        top: calc(calc(var(--vh, 1vh) * 16) + -0.25rem);
+        overflow: hidden;
+        z-index: 10;
+        pointer-events: none;
+    }
 }
 
 </style>
