@@ -68,28 +68,28 @@ import Portfolio from '@/assets/img/Information/Art/portfolio2.webp'
 }
 
 /* .logo-wrapper {
-    position: relative;
-    display: inline-block;
-    z-index: 1;
+position: relative;
+display: inline-block;
+z-index: 1;
 }
 
 .logo-wrapper::after {
-    content: "";
-    position: absolute;
-    top: 0.5rem;
-    left: 0.5rem;
-    width: 14.5%;
-    height: 45%;
-    background-color: #00ffff;
-    filter: brightness(50) saturate(200);
-    transition: transform 0.2s ease;
-    z-index: 1;
-    pointer-events: none;
-    opacity: 0;
+content: "";
+position: absolute;
+top: 0.5rem;
+left: 0.5rem;
+width: 14.5%;
+height: 45%;
+background-color: #00ffff;
+filter: brightness(50) saturate(200);
+transition: transform 0.2s ease;
+z-index: 1;
+pointer-events: none;
+opacity: 0;
 }
 
 .logo-wrapper:hover::after {
-    opacity: 1;
+opacity: 1;
 } */
 
 .logo {
@@ -111,6 +111,6 @@ import Portfolio from '@/assets/img/Information/Art/portfolio2.webp'
     .art-background {
         top: 0;
     }
-
+    
 }
 </style>

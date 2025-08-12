@@ -18,9 +18,9 @@ import { ref, onMounted,  onUnmounted } from 'vue'
 import Floaty from '@/components/Floaty.vue'
 import { IsMobile } from '@/utils/IsMobile.js'
 
-import img1 from '@/assets/img/Background/takodachi1.png'
-import img2 from '@/assets/img/Background/takodachi2.png'
-import img3 from '@/assets/img/Background/takodachi3.png'
+import img1 from '@/assets/img/Background/takodachi1.webp'
+import img2 from '@/assets/img/Background/takodachi2.webp'
+import img3 from '@/assets/img/Background/takodachi3.webp'
 
 const props = defineProps({
     img1Count: { type: Number, default: 1 },

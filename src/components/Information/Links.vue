@@ -16,7 +16,7 @@
 
 <script setup>
 import GitHub from '@/assets/img/Information/Links/GitHub_logo.webp'
-import LinkedIn from '@/assets/img/Information/Links/LinkedIn-Logo.wine.png'
+import LinkedIn from '@/assets/img/Information/Links/LinkedIn-Logo.webp'
 </script>
 
 <style scoped>

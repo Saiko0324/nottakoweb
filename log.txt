@@ -1,3 +1,8 @@
+12/08/2025
+converted remaining png to webp for slightly better performance, then added image preloading for Contact and Art sections.
+The workload is carried over to Main Menu component but I think the decision is good. Maybe in the future I'll just preload everything lmao.
+Really lazy to do it, but I think my next step is to put in the Resume part (because the Others part is waaaaaaay bigger in volume)
+
 08/08/2025
 Fixed an issue where the sub window gets stuck/cut off on mobile view, and added preloading for all currently using fonts.
 As you can see, this project is on a hiatus now, somewhat because I got a job, but mostly because I'm lazy and satisfied (for now).

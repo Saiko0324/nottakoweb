@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-import Logo from '@/assets/img/Information/Works/geoguessLogo.png'
+import Logo from '@/assets/img/Information/Works/geoguessLogo.webp'
 </script>
 
 <style scoped>
