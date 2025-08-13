@@ -1,10 +1,10 @@
 import { ref, onMounted, onUnmounted, getCurrentInstance } from 'vue';
 
 export function IsMobile() {
-    const isMobile = ref(window.innerWidth <= 768);
+    const Mobile = ref(window.innerWidth <= 768);
     
     const check = () => {
-        isMobile.value = window.innerWidth <= 768;
+        Mobile.value = window.innerWidth <= 768;
     };
     
     const instance = getCurrentInstance();
@@ -18,5 +18,5 @@ export function IsMobile() {
         });
     }
     
-    return isMobile;
+    return Mobile;
 }

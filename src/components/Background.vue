@@ -16,7 +16,7 @@
 <script setup>
 import { ref, onMounted,  onUnmounted } from 'vue'
 import Floaty from '@/components/Floaty.vue'
-import { IsMobile } from '@/utils/IsMobile.js'
+import { IsMobile } from '@/utils/CheckMobile.js'
 
 import img1 from '@/assets/img/Background/takodachi1.webp'
 import img2 from '@/assets/img/Background/takodachi2.webp'
@@ -45,10 +45,10 @@ const images = ref([
 const getRandom = (min, max) => Math.random() * (max - min) + min
 
 const getVelocity = () => {
-    if (IsMobile()) {
-        return (Math.random() < 0.5)? getRandom(-1, -0.1) || 1 : getRandom(0.1, 1)
+    if (MobileDevice.value) {
+        return (Math.random() < 0.5)? getRandom(-0.5, -0.1) || 1 : getRandom(0.1, 0.5)
     }    
-    else return (Math.random() < 0.5)? getRandom(-2.5, -0.1) || 1 : getRandom(0.1, 2.5)
+    else return (Math.random() < 0.5)? getRandom(-1, -0.1) || 1 : getRandom(0.1, 1)
 }    
 
 const randomPositions = images.value.map(() => ({

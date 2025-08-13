@@ -17,7 +17,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted, watch } from 'vue';
 
-const emit = defineEmits(['update:show']);
+const emit = defineEmits(['update:show', 'bringToFront']);
 
 const props = defineProps({
     title: { type: String, default: 'Window' },

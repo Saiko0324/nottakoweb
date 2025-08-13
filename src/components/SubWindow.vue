@@ -13,9 +13,9 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, watch } from 'vue'
 
-const emit = defineEmits(['update:showsub'])
+const emit = defineEmits(['update:showsub', 'bringsubToFront'])
 
 const props = defineProps({
     title: { type: String, default: 'SubWindow' },
@@ -95,6 +95,18 @@ onUnmounted(() => {
     document.removeEventListener('pointermove', Drag);
     document.removeEventListener('pointerup', StopDrag);
 })
+
+let initialized = false;
+
+watch(
+() => [props.subinitialX, props.subinitialY, props.showsub],
+([newX, newY, isVisible]) => {
+    if (isVisible && !initialized) {
+        position.value = { x: newX, y: newY };
+        initialized = true;
+    }
+}, { immediate: true }
+);
 
 </script>
 

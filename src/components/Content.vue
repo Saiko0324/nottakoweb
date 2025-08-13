@@ -66,7 +66,7 @@ import Background from '@/components/Background.vue';
 import MainMenu from '@/components/MainMenu.vue';
 import Setting from '@/components/Setting.vue';
 
-import { IsMobile } from '@/utils/IsMobile.js';
+import { IsMobile } from '@/utils/CheckMobile.js';
 const MobileDevice = IsMobile();
 
 import { ref } from 'vue';

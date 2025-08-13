@@ -12,7 +12,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import { IsMobile } from '@/utils/IsMobile.js'
+import { IsMobile } from '@/utils/CheckMobile.js'
 
 const MobileDevice = IsMobile();
 const ContainerHeightRatio = MobileDevice.value? 0.9 : 0.84;

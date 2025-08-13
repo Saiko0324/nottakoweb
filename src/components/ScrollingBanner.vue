@@ -23,7 +23,7 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { IsMobile } from '@/utils/IsMobile.js';
+import { IsMobile } from '@/utils/CheckMobile.js';
 // import SpriteAnimator from '@/components/SpriteAnimator.vue';
 import tako from '@/assets/img/ScrollingBanner/tako-spin-lineart.webp'
 // import img1 from '@/assets/img/ScrollingBanner/takodachi-spin-compressed-100.webp';

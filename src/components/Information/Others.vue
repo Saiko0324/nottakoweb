@@ -5,7 +5,7 @@
 </template>
 
 <script setup>
-import { IsMobile } from '../../utils/isMobile';
+import { IsMobile } from '@/utils/CheckMobile.js';
 
 const MobileDevice = IsMobile();
 </script>

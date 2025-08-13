@@ -43,62 +43,62 @@
         :zIndex="zIndices.About" :initialX="initialPositions.About.x" :initialY="initialPositions.About.y"
         @pointerdown="bringToFront('About')" @bringToFront="bringToFront('About')">
         <About />
-    </Window>
-    <Window v-model:show="showWorks"
-    title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'" 
-    :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
-    :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
-    @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
-    <Works />
-</Window>
-<Window v-model:show="showLinks"
-title="LINKS" :img="Links_Tako" :imgYOffset="'-40%'"
-:zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
-:windowSize="{ width: 'min(38rem, 100vw)', height: 'min(23rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
-<Links />
-</Window>
-<Window v-model:show="showOthers"
-title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'"
-:zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Others')" @bringToFront="bringToFront('Others')">
-<Others />
-</Window>
-<Window v-model:show="showResume"
-title="RESUME" :img="Resume_Tako" :imgYOffset="'-50%'"
-:zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
-<Resume />
-</Window>
-<Window v-model:show="showContact"
-title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'"
-:zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
-:windowSize="{ width: 'min(38rem, 100vw)', height: 'min(28rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
-<Contact />
-</Window>
-<Window v-model:show="showArt"
-title="ART" :img="Art_Tako" :imgYOffset="'-55%'"
-:zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(40rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
-<Art />
-</Window>
-<!-- <Window v-model:show="showControls"
-title="Controls"
-:zIndex="zIndices.Controls" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y"
-:windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
-@pointerdown="bringToFront('Controls')">
-<Controls />
-</Window> -->
-</div>
+        </Window>
+        <Window v-model:show="showWorks"
+        title="WORKS" :img="Works_Tako" :imgYOffset="'-55%'" 
+        :zIndex="zIndices.Works" :initialX="initialPositions.Works.x" :initialY="initialPositions.Works.y"
+        :windowSize="{ width: 'min(58rem, 100vw)', height: 'min(50rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Works')" @bringToFront="bringToFront('Works')">
+        <Works />
+        </Window>
+        <Window v-model:show="showLinks"
+        title="LINKS" :img="Links_Tako" :imgYOffset="'-40%'"
+        :zIndex="zIndices.Links" :initialX="initialPositions.Links.x" :initialY="initialPositions.Links.y"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(23rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Links')" @bringToFront="bringToFront('Links')">
+        <Links />
+        </Window>
+        <Window v-model:show="showOthers"
+        title="OTHERS" :img="Others_Tako" :imgYOffset="'-45%'"
+        :zIndex="zIndices.Others" :initialX="initialPositions.Others.x" :initialY="initialPositions.Others.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Others')" @bringToFront="bringToFront('Others')">
+        <Others />
+        </Window>
+        <Window v-model:show="showResume"
+        title="RESUME" :img="Resume_Tako" :imgYOffset="'-50%'"
+        :zIndex="zIndices.Resume" :initialX="initialPositions.Resume.x" :initialY="initialPositions.Resume.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Resume')" @bringToFront="bringToFront('Resume')">
+        <Resume />
+        </Window>
+        <Window v-model:show="showContact"
+        title="CONTACT" :img="Contact_Tako" :imgYOffset="'-45%'"
+        :zIndex="zIndices.Contact" :initialX="initialPositions.Contact.x" :initialY="initialPositions.Contact.y"
+        :windowSize="{ width: 'min(38rem, 100vw)', height: 'min(28rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Contact')" @bringToFront="bringToFront('Contact')">
+        <Contact />
+        </Window>
+        <Window v-model:show="showArt"
+        title="ART" :img="Art_Tako" :imgYOffset="'-55%'"
+        :zIndex="zIndices.Art" :initialX="initialPositions.Art.x" :initialY="initialPositions.Art.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(40rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Art')" @bringToFront="bringToFront('Art')">
+        <Art />
+        </Window>
+        <!-- <Window v-model:show="showControls"
+        title="Controls"
+        :zIndex="zIndices.Controls" :initialX="initialPositions.Controls.x" :initialY="initialPositions.Controls.y"
+        :windowSize="{ width: 'min(53rem, 100vw)', height: 'min(38rem, calc(var(--vh, 1vh) * 90))' }"
+        @pointerdown="bringToFront('Controls')">
+        <Controls />
+        </Window> -->
+    </div>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { IsMobile } from '@/utils/IsMobile.js';
+import { IsMobile } from '@/utils/CheckMobile.js';
 import Window from '@/components/Window.vue';
 import MobileWindow from '@/components/MobileWindow.vue';
 import About from '@/components/Information/About.vue';
@@ -161,45 +161,59 @@ const artRef = ref(null);
 // const controlsRef = ref(null);
 
 const initialPositions = ref({
-    About: { x: 300, y: 0 },
+    About: { x: 285, y: 0 },
     Works: { x: 300, y: 0 },
-    Links: { x: 300, y: 0 },
+    Links: { x: 315, y: 0 },
     Others: { x: 550, y: 160 },
     Resume: { x: 650, y: 160 },
-    Contact: { x: 300, y: 0 },
-    Art: { x: 300, y: 0 },
+    Contact: { x: 330, y: 0 },
+    Art: { x: 345, y: 0 },
     // Controls: { x: 0, y: 0 },
 });
 
-// function remToPx(rem) {
-//     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
-// }
+function remToPx(rem) {
+    return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
+}
 
-// const elementWidths = {
-//     About: '50rem',
-//     Works: '58rem',
-//     Links: '38rem',
-//     Contact: '38rem',
-//     Art: '53rem',
-// };
+const elementWidths = {
+    About: '50rem',
+    Works: '58rem',
+    Links: '38rem',
+    Others: '53rem',
+    Resume: '53rem',
+    Contact: '38rem',
+    Art: '53rem',
+};
 
 function updatePositions() {
     const offsetY = window.innerHeight * 0.16;
-    const offsetX = window.innerWidth * 0.15;
+    const offsetWorks = initialPositions.value.Works.x;
+    const WorksWidth = remToPx(parseFloat(elementWidths.Works));
+    const overflow = (offsetWorks + WorksWidth) - window.innerWidth;
+    const closebuttonwidth = remToPx(1.5);
+
     Object.keys(initialPositions.value).forEach(key => {
         initialPositions.value[key].y = offsetY;
-        initialPositions.value[key].x = offsetX;
+        if (overflow > 0){
+            const originalX = initialPositions.value[key].x;
+            const newX = originalX - overflow - closebuttonwidth;
+            if (newX < 0) {
+                initialPositions.value[key].x = 0;
+            } else {
+                initialPositions.value[key].x = newX;
+            }
+        }
     });
 }
 
 onMounted(() => {
     const artImages = [ContactKDTD, ArtBackground, ArtInfo, ArtInstagram, ArtPortfolio]
-
+    
     artImages.forEach(imageSrc => {
         const img = new Image()
         img.src = imageSrc
     })
-
+    
     updatePositions();
     window.addEventListener('resize', updatePositions);
 });

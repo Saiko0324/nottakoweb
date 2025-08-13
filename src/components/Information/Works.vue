@@ -1,5 +1,5 @@
 <template>
-    <div class="work-container">
+    <div class="work-container" ref="workContainer">
         <div class="dev-skills-container">
             <div class="intro-sub-title DEVELOPMENT-SKILLS">DEVELOPMENT SKILLS</div>
             <div class="intro-main-text">
@@ -222,6 +222,11 @@ import ThisWebsite from '../../components/Information/Details/ThisWebsite.vue';
 import StillHuman from '../../components/Information/Details/StillHuman.vue';
 
 import { ref, onMounted } from 'vue'
+import { IsMobile } from '@/utils/CheckMobile';
+
+const MobileDevice = IsMobile();
+
+const workContainer = ref(null);
 
 const showCAGED = ref(false);
 const showNOTRANS = ref(false);
@@ -253,13 +258,24 @@ const ThisWebsiteRef = ref(null);
 const StillHumanRef = ref(null);
 
 const subinitialPositions = ref({
-    CAGED: { x: 0, y: 0 },
-    NOTRANS: { x: 0, y: 0 },
-    GEOguessr: { x: 0, y: 0 },
-    One2PG: { x: 0, y: 0 },
-    ThisWebsite: { x: 0, y: 0 },
-    StillHuman: { x: 0, y: 0 },
+    CAGED: { x: 15, y: 7 },
+    NOTRANS: { x: 25, y: 7 },
+    GEOguessr: { x: 35, y: 7 },
+    One2PG: { x: 45, y: 7 },
+    ThisWebsite: { x: 55, y: 7 },
+    StillHuman: { x: 65, y: 7 },
 });
+
+function updatePositions() {
+    const containerWidth = workContainer.value ? workContainer.value.offsetWidth : window.innerWidth;
+    let offsetX = MobileDevice.value? 15 : containerWidth * 0.4;
+    let offsetY = MobileDevice.value? 5 : 7;
+    Object.keys(subinitialPositions.value).forEach(key => {
+        subinitialPositions.value[key].x = offsetX;
+        subinitialPositions.value[key].y = offsetY;
+        offsetX += 10;
+    });
+}
 
 function openCAGED() {
     window.open('https://fhvirus.itch.io/caged', '_blank', 'noopener, noreferrer');
@@ -317,7 +333,7 @@ onMounted(() => {
     };
     
     updateScrollBehavior();
-    
+    updatePositions();
     new ResizeObserver(updateScrollBehavior).observe(devSkills);
 });
 

@@ -81,7 +81,7 @@
 <script setup>
 import Icon from '@/assets/img/Information/icon2_crop.jpg';
 import HoverIcon from '@/assets/img/Information/icon_alt.jpg'
-import { IsMobile } from '../../utils/isMobile';
+import { IsMobile } from '@/utils/CheckMobile';
 
 import { ref } from 'vue'
 

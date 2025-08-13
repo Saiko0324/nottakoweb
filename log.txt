@@ -1,5 +1,11 @@
+13/08/2025
+Renamed the isMobile utility to CheckMobile, and fixed some import paths and naming inconsistencies with this function.
+Modified the initial positions of Windows and SubWindows to consistent placements and added calculations for them to not be initialized out of screen.
+Also slightly tweaked background takodachi speed to be lower for mobile.
+Reconsidered publicly displaying my resume since it has my some of my private information, but I'm thinking of putting up a 'Resource' section to put in learning materials and my resume template.
+
 12/08/2025
-converted remaining png to webp for slightly better performance, then added image preloading for Contact and Art sections.
+Converted remaining png to webp for slightly better performance, then added image preloading for Contact and Art sections.
 The workload is carried over to Main Menu component but I think the decision is good. Maybe in the future I'll just preload everything lmao.
 Really lazy to do it, but I think my next step is to put in the Resume part (because the Others part is waaaaaaay bigger in volume)
 

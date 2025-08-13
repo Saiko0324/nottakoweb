@@ -24,7 +24,7 @@
         <div class="project-video">
             <iframe width="100%" height="200" src="https://www.youtube.com/embed/14E8PYnPyL4"
             title="CAGED advertisement Video" frameborder="0"
-            allow="accelerometer; volume; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
         
