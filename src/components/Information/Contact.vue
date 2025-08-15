@@ -52,18 +52,25 @@ const copyEmail = async () => {
 }
 
 const WAHs = [WAH1, WAH2, WAH3, WAH4, WAH5]
-let currentAudio = null
+// let currentAudio = null
+
+// const playRandomWAH = () => {
+//     const randomIndex = Math.floor(Math.random() * WAHs.length)
+    
+//     if (currentAudio) {
+//         currentAudio.pause()
+//         currentAudio.currentTime = 0
+//     }
+    
+//     currentAudio = new Audio(WAHs[randomIndex])
+//     currentAudio.play().catch(e => console.error('Sound play error:', e))
+// }
 
 const playRandomWAH = () => {
     const randomIndex = Math.floor(Math.random() * WAHs.length)
-    
-    if (currentAudio) {
-        currentAudio.pause()
-        currentAudio.currentTime = 0
-    }
-    
-    currentAudio = new Audio(WAHs[randomIndex])
-    currentAudio.play().catch(e => console.error('Sound play error:', e))
+    const audio = new Audio(WAHs[randomIndex])
+    audio.addEventListener('ended', () => audio.remove())
+    audio.play().catch(e => console.error('Sound play error:', e))
 }
 
 </script>

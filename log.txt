@@ -1,3 +1,15 @@
+15/08/2025
+Decided to procrastinate on the SFX part, but didn't feel like doing the Resource part either, so I just fixed some visual bugs for when screen ratio is too wide.
+Also copy and pasted to Work dynamic scroll logic to About, since I think providing the option is better than not. Hope it looks better that way.
+Kind of want to work on Light/Dark mode as well but I don't know about the colours yet.
+So in total my current plans include: Resource section (and/or Others section) for information, and Light/Dark mode + basic SFX (and/or extra SFX) for improved experience, which requires learning global settings :(
+
+14/08/2025
+Made the audios in 'Contact' stackable, and edited about 125 WAH audio clips in total, still thinking about how I can use them.
+One possible use case is for takodachi collision to play at random, but I'll need global audio control for that and I haven't learned settings yet.
+Maybe I'll add in basic SFX for clicking (opening/closing windows and subwindows) and dragging first.
+Side note: I realized using the auto indent extension fucks up my <template> codes (maybe my structure is too unconventional?), might have to unlearn this habit.
+
 13/08/2025
 Renamed the isMobile utility to CheckMobile, and fixed some import paths and naming inconsistencies with this function.
 Modified the initial positions of Windows and SubWindows to consistent placements and added calculations for them to not be initialized out of screen.

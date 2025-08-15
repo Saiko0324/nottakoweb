@@ -313,6 +313,7 @@ onMounted(() => {
     const devSkills = document.querySelector('.dev-skills-container');
     const introSub = document.querySelector('.intro-sub-container');
     const workContainer = document.querySelector('.work-container');
+    const scrollCover = document.querySelector('.scroll-cover');
     
     const updateScrollBehavior = () => {
         const threshold = window.innerHeight * 0.4;
@@ -321,12 +322,14 @@ onMounted(() => {
             introSub.style.overflowY = 'hidden';
             introSub.style.flex = 'none';
             introSub.style.height = 'auto';
+            scrollCover.style.height = '0';
             
             workContainer.style.overflowY = 'auto';
             
         } else {
             introSub.style.overflowY = 'auto';
             introSub.style.flex = '1';
+            scrollCover.style.height = '1.5rem';
             
             workContainer.style.overflowY = 'hidden';
         }

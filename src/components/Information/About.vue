@@ -83,7 +83,7 @@ import Icon from '@/assets/img/Information/icon2_crop.jpg';
 import HoverIcon from '@/assets/img/Information/icon_alt.jpg'
 import { IsMobile } from '@/utils/CheckMobile';
 
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 
 const MobileDevice = IsMobile();
 const currentIcon = ref(Icon)
@@ -92,6 +92,40 @@ const nameActive = ref(false);
 
 const to_alt_icon = () => currentIcon.value = HoverIcon
 const to_normal_icon = () => currentIcon.value = Icon
+
+onMounted(() => {
+    const introMain = document.querySelector('.intro-main-container');
+    const rolesContainer = document.querySelector('.roles-container');
+    const introSub = document.querySelector('.intro-sub-container');
+    const aboutContainer = document.querySelector('.about-container');
+    const scrollCover = document.querySelector('.scroll-cover');
+    
+    const updateScrollBehavior = () => {
+        const threshold = window.innerHeight * 0.4;
+        const combinedHeight = introMain.offsetHeight + rolesContainer.offsetHeight;
+        
+        if (combinedHeight >= threshold) {
+            introSub.style.overflowY = 'hidden';
+            introSub.style.flex = 'none';
+            introSub.style.height = 'auto';
+            scrollCover.style.height = '0';
+            
+            aboutContainer.style.overflowY = 'auto'; 
+            
+        } else {
+            introSub.style.overflowY = 'auto';
+            introSub.style.flex = '1';
+            scrollCover.style.height = '1.5rem';
+            
+            aboutContainer.style.overflowY = 'hidden';
+        }
+    };
+    
+    updateScrollBehavior();
+    new ResizeObserver(updateScrollBehavior).observe(introMain);
+    new ResizeObserver(updateScrollBehavior).observe(rolesContainer);
+});
+
 </script>
 
 <style scoped>

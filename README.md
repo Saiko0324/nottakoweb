@@ -45,6 +45,10 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 14. customize takodachi speed?
 15. beta art version
 16. minimize windows/subwindows
+17. sound effect WAH on takodachi collision/grab
+18. two types of SFX settings?
+19. different types of background for Home page
+20. wallpaper patterns
 
 ## Notes to self
 1. bilingual texts with vue-i18n
@@ -59,3 +63,5 @@ Vue framework with tailwindcss (integrated but not used yet), initially I wanted
 10. ask teammates how/would they prefer to be credited
 11. free sound effects at https://www.zapsplat.com/
 12. someone told me to mention licensing, I'll do it when I feel like it I guess
+13. figure out where to integrate SFX
+14. check \<template\> code if/after using auto indent extension
